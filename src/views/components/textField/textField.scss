@@ -1,0 +1,48 @@
+@use '../../../assets/styles/base/typography';
+@use '../../../assets/styles/base/variables' as vars;
+
+.text-field {
+  position: relative;
+  display: block;
+  // max-width: 320px;
+
+  &__title {
+    @include typography.fontH3();
+  }
+
+  &__input {
+    @include typography.ordinaryFont();
+    color: vars.$mainTextColor75;
+    padding: 9px 15px;
+    width: 100%;
+    border: 1px solid vars.$inputBorderColor;
+    border-radius: 4px;
+    
+    &::placeholder {
+      font-size: 14px;
+      color: vars.$mainTextColor25;
+    }
+    
+    &:hover {
+      transition: border-color vars.$tr-fast;
+      border: 1px solid vars.$inputBorderColor--hover;
+    }
+
+    &:focus {
+      border-color: vars.$inputBorderColor--hover;
+      outline: none;
+
+      &::placeholder {
+        color: vars.$mainTextColor75;
+        transition: color vars.$tr-fast;
+      }
+    }
+  }
+
+  &__button-wrap {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+  }
+}

@@ -1,0 +1,55 @@
+// @import '../../styles/plugins/datepicker.css';
+@use '../../../assets/styles/base/variables' as vars;
+@use '../../../assets/styles/base/typography';
+@import '../../components/selectionCard/selectionCard';
+
+
+.landing {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../../../assets/images/backgrounds/landing-page-bg.jpg');
+  max-width: 1920px;
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 1260px;
+    padding: 70px 50px 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 830px;
+
+    @media (max-width: vars.$table-width) {
+      justify-content: center;
+      height: min-content;
+      height: 685px;
+      padding-bottom: 50px;
+    }
+  }
+
+  // &__selectionCard-container {
+  // }
+
+  &__description-container {
+    width: 297px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+
+    @media (max-width: vars.$table-width) {
+      display: none;
+    }
+  }
+
+  &__description {
+    @include typography.ordinaryFont();
+    color: vars.$mainTextColor75;
+    line-height: 26px;
+    text-align: end;
+  }
+}

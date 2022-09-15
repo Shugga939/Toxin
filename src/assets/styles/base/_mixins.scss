@@ -1,0 +1,94 @@
+// @mixin fontH1() {
+//   color: $mainTextColor;
+//   font-weight: bold;
+//   font-size: 24px;
+//   line-height: 29px;
+// }
+// @mixin fontH2() {
+//   font-weight: bold;
+//   font-size: 19px;
+//   line-height: 24px;
+// }
+// @mixin fontH3() {
+//   color: $mainTextColor;
+//   text-transform: uppercase;
+//   font-weight: bold;
+//   font-size: 12px;
+//   line-height: 15px;
+// }
+// @mixin ordinaryFont() {
+//   font-family: $mainFont;
+//   color: $mainTextColor50;
+//   font-size: 14px;
+//   line-height: 24px;
+//   text-transform: none;
+//   text-decoration: none;
+//   font-weight: normal;
+// }
+// @mixin buttonsFont() {
+//   font-family: $mainFont;
+//   font-size: 12px;
+//   line-height: 24px;
+//   text-transform: uppercase;
+//   text-decoration: none;
+//   font-weight: bold;
+// }
+// @mixin inputsTitleFont() {
+//   font-family: $mainFont;
+//   font-size: 12px;
+//   text-transform: uppercase;
+//   text-decoration: none;
+//   font-weight: bold;
+// }
+
+// // move in components
+// // @mixin dropButton($left) {
+// //   position: absolute;
+// //   width: 40px;
+// //   height: 40px;
+// //   left: $left;
+// //   align-items: center;
+// //   text-align: center;
+// //   background-color: white;
+// //   border: 0px;
+// //   border-radius: 4px;
+// //   cursor: pointer;
+// //   margin-top: 1px;
+// //   margin-left: 1px;
+// //   background-repeat: no-repeat;
+// //   background-position: center;
+
+// //   &:hover{
+// //     background-color: hsl(0, 0%, 97%);
+// //   }
+// //   &:focus{
+// //     outline: none;
+// //     background-color: hsl(0, 0%, 97%);
+// //   }
+// // }
+
+// // @mixin input ($wd){
+// //     font-family: 'Montserrat', sans-serif;
+// //     width: $wd;
+// //     height: 44px;
+// //     border: 1px solid $mainTextColor25;
+// //     box-sizing: border-box;
+// //     border-radius: 4px;
+// //     background-color: white;
+// //     color: $mainTextColor75;
+// //     padding-left: 15px;
+// //     font-size: 14px;
+// //     cursor: default;
+// //     margin-top: -1px;
+// //         &:focus{
+// //             outline: none;
+// //             border-color: $mainTextColor50;
+// //         }
+// //         &:hover{
+// //             border-color:$mainTextColor50;
+// //           }
+// //         &::placeholder{
+// //             color: $mainTextColor25;
+// //         }
+    
+// // }

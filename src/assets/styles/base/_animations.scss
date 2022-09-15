@@ -1,0 +1,34 @@
+.dropdown-svg {
+  &--opened {
+    animation: dropdown--open 0.1s ease;
+    transform: rotate(-180deg);
+  }
+
+  &--closed {
+    animation: dropdown--close 0.1s ease;
+  }
+}
+
+@keyframes dropdown--open {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes dropdown--close {
+  0% {
+    transform: rotate(-180deg);
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

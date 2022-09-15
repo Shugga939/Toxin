@@ -6,6 +6,8 @@ const PugPlugin = require('pug-plugin');
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production';
+  const PAGES_DIR = 'src/views/pages';
+
 
   return {
     mode: isProd ? 'production' : 'development',
@@ -13,23 +15,12 @@ module.exports = (env, argv) => {
     stats: 'minimal',
 
     entry: {
-      // !!! ATTENTION !!!
-      //
-      // The pug-plugin enable to use script and style source files directly in Pug, so easy:
-      //
-      //   link(href=require('./styles.scss') rel='stylesheet')
-      //   script(src=require('./main.js'))
-      //
-      // Don't define styles and js files in entry. You can require source files of js and scss directly in Pug.
-      // Don't use `html-webpack-plugin` to render Pug files in HTML. Pug plugin do it directly from here and much faster.
-      // Don't use `mini-css-extract-plugin` to extract CSS from styles. Pug plugin extract CSS from style sources required in Pug.
+      index: `${PAGES_DIR}/index/index.pug`,
+      headersAndFooters: `${PAGES_DIR}/headersAndFooters/headersAndFooters.pug`,
+      landing: `${PAGES_DIR}/landing/landing.pug`,
+      signIn: `${PAGES_DIR}/signIn/signIn.pug`,
+      registration: `${PAGES_DIR}/registration/registration.pug`,
 
-      // Please, see more details under https://github.com/webdiscus/pug-plugin
-
-      // Yes, You can define Pug files directly in entry, so easy:
-      index: 'src/views/pages/home/index.pug',
-      contact: 'src/views/pages/contact/index.pug',
-      about: 'src/views/pages/about/index.pug',
     },
 
     output: {

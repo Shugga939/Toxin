@@ -1,43 +1,65 @@
+@use 'variables' as vars;
+
 @font-face {
-  font-family: 'OpenSans';
+  font-family: 'Montserrat';
   src:
-    url('Fonts/OpenSans/open-sans-regular.svg') format('svg'),
-    url('Fonts/OpenSans/open-sans-regular.woff2') format('woff2');
+    url('Fonts/montserrat/montserrat-regular.woff2'),
+    url('Fonts/montserrat/montserrat-regular.woff');
+  font-weight: 400;
   font-style: normal;
 }
 
-body {
-  font-family: OpenSans, sans-serif;
+@font-face {
+  font-family: 'Montserrat';
+  src: 
+    url('Fonts/montserrat/montserrat-bold.woff2'),
+    url('Fonts/montserrat/montserrat-bold.woff');
+  font-weight: 700;
+  font-style: normal;
 }
 
-a {
-  color: #737373;
+@mixin fontH1() {
+  font-family: vars.$mainFont;
+  color: vars.$mainTextColor;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+}
+@mixin fontH2() {
+  font-family: vars.$mainFont;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 24px;
+}
+@mixin fontH3() {
+  font-family: vars.$mainFont;
+  color: vars.$mainTextColor;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+}
+@mixin ordinaryFont() {
+  font-family: vars.$mainFont;
+  color: vars.$mainTextColor50;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: none;
   text-decoration: none;
-
-  &.link {
-    color: #1993ff;
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
+  font-weight: normal;
 }
-
-h1 {
-  text-align: center;
+@mixin buttonsFont() {
+  font-family: vars.$mainFont;
+  font-size: 12px;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
 }
-
-.teaser {
-  color: #737373;
-  text-align: center;
-  font-size: 18px;
-}
-
-.copyleft {
-  &:before {
-    content: '\00a9';
-  }
-  font-size: 18px;
-  display: inline-block;
-  transform: scaleX(-1);
+@mixin inputsTitleFont() {
+  font-family: vars.$mainFont;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
 }

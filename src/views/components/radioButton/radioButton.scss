@@ -1,0 +1,52 @@
+@use '../../../assets/styles/base/variables' as vars;
+
+.radio-button{
+  display: flex;
+  align-items: center;
+
+  &__label {
+    position: relative;
+    
+    input{
+      display: none;
+  
+      &:checked + span::after{ //point
+        position: absolute;
+        content: '';
+        left: 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        background: vars.$mainGradientColor;
+      }
+      &:checked + span {
+        color: vars.$mainTextColor75;
+      }
+    }
+  
+    &>span{
+      display: inline-flex;
+      align-items: center;
+      user-select: none;
+      
+      &:before{   //border
+        cursor: pointer;
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid vars.$mainTextColor25 ;
+        border-radius: 100%;
+        margin-right: 10px;
+      }
+    }
+  
+    &>input:not(:checked)+span:hover::before{  //hover
+      border-color: vars.$mainAccentColor;
+    }
+  
+    &>input:checked + span::before{ //border after check
+      border-color: vars.$mainAccentColor;
+    }
+  }
+}

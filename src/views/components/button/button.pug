@@ -1,0 +1,13 @@
+mixin button({ type = "button", href = '#', classes = '', text = null })
+	if type === 'button'
+		button(type="button" class=classes).button
+			| #{text}
+	else if type === 'submit'
+		button(type="submit" class=classes).button
+			| #{text}
+	else if type === 'link'
+		a(href=href class=classes).button
+			| #{text}
+	else
+		span
+			| this type of button is not valid

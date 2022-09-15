@@ -1,0 +1,28 @@
+mixin dropdownDate({ firstTitle, secondTitle })
+  .dropdown-date
+    label.dropdown-date__label
+      span.dropdown-date__title
+        | #{firstTitle}
+      .dropdown-date__input-container
+        input(
+          autocomplete="off" 
+          type="text"
+          placeholder="ДД.ММ.ГГГГ" 
+          name="date-arrival"
+        ).dropdown-date__input
+        button(type='button').dropdown-date__button
+          svg.dropdown-date__arrow
+            use(xlink:href="#expand-more")
+    label.dropdown-date__label
+      span.dropdown-date__title
+        | #{secondTitle}
+      .dropdown-date__input-container
+        input(
+          autocomplete="off" 
+          type="text" 
+          placeholder="ДД.ММ.ГГГГ" 
+          name="date-leaving"
+          ).dropdown-date__input
+        button(type='button').dropdown-date__button
+          svg.dropdown-date__arrow
+            use(xlink:href="#expand-more")

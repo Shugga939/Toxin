@@ -1,0 +1,111 @@
+@use '../../../assets/styles/base/variables' as vars;
+@use '../../../assets/styles/base/typography';
+
+.button {
+  @include typography.buttonsFont();
+  padding: 5px 20px;
+  display: inline-block;
+  color: vars.$mainButtonsTextColor;
+  border: none;
+  border-radius: 22px;
+  cursor: pointer;
+  overflow-wrap: break-word;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+
+  &--inputSubmit {
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
+    background-image: url(../../../assets/images/icons/arrow-forward-colored.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+  }
+
+  &--entire {
+    background: vars.$mainButtonsBackgroundColor;
+    color: vars.$additionalButtonsTextColor;
+  }
+
+  &--bordered {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      background: vars.$mainButtonsBackgroundColor;
+      border-radius: 22px;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      z-index: -1;
+      top: 2px;
+      right: 2px;
+      bottom: 2px;
+      left: 2px;
+      background-color: vars.$mainBackgroundColor;
+      border-radius: 22px;
+    }
+  }
+
+  &--confirm {
+    position: relative;
+    width: 100%;
+    background: vars.$mainButtonsBackgroundColor;
+    color: vars.$additionalButtonsTextColor;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      width: 20px;
+      height: 100%;
+      content: '';
+      background-image: url(../../../assets/images/icons/arrow-forward.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  &--high {
+    padding: 10px 20px;
+  }
+
+  &--textual {
+      padding: 0;
+      color: vars.$mainButtonsTextColor;
+      background: none;
+      border-radius: 0;
+  
+      &:hover {
+        opacity: 1;
+        color: vars.$mainTextColor50;
+      }
+  }
+
+  // &_hidden {
+  //   visibility: hidden;
+  // }
+}

@@ -1,0 +1,148 @@
+@use '../../../assets/styles/base/variables' as vars;
+@use '../../../assets/styles/base/typography';
+@use '../../../assets/styles/base/animations';
+
+.dropdown-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+
+  // @media (max-width: vars.$phone-width) {
+  //   max-width: 100%;
+  // }
+
+  &__title {
+    @include typography.fontH3();
+  }
+
+  &__input-container {
+    position: relative;
+    margin-top: 5px;
+  }
+  
+  &__input {
+    @include typography.ordinaryFont();
+    line-height: 18px;
+    padding: 12px 15px;
+    width: 100%;
+    border: 1px solid;
+    border-color: vars.$inputBorderColor;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+
+    &::placeholder {
+      color: vars.$mainTextColor75;
+    }
+
+    &::-moz-placeholder {
+      color: vars.$mainTextColor75;
+    }
+
+    &:focus {
+      border-color:  vars.$inputBorderColor--hover;
+      outline: none;
+    }
+
+    &:hover {
+      border-color: vars.$inputBorderColor--hover;
+    }
+
+    &--active {
+      border-color: vars.$inputBorderColor--hover;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: calc(50% - 6px);
+    right: 16px;
+    width: 12px;
+    height: 12px;
+    fill: vars.$mainTextColor50;
+    cursor: pointer;
+  }
+
+  &__list-wrapper {
+    position: absolute;
+    width: 100%;
+    max-height: 0px;
+    top: 61px;
+    overflow: hidden;
+    z-index: 10;
+    transition: all 0.4s ease;
+  }
+
+  &__list {
+    @include typography.fontH3;
+    // position: absolute;
+    max-width: 320px;
+    height: 100%;
+    width: 100%;
+    // visibility: hidden;
+    background: #FFFFFF;
+    text-transform: uppercase;
+    border: 1px solid vars.$mainTextColor50;
+    border-radius: 0px 0px 5px 5px ;
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    padding: 0 7px 5px 15px;
+    overflow: hidden;
+  }
+  
+  &__item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 7px;
+  }
+
+  // &__item-name {
+    
+  // }
+
+  &__counter-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90px;
+  }
+
+  &__counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+  }
+
+  &__button {
+    width: 30px;
+    height: 30px;
+    left: 220px;
+    color: vars.$mainTextColor50;
+    border: 1px solid vars.$mainTextColor50;
+    box-sizing: border-box;
+    border-radius: 22px;
+    font-weight: normal;
+    font-size: 18px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    
+    &:last-child {
+      padding-top: 2px;
+    }
+  
+    &--unactive{
+      color: vars.$mainTextColor25;
+      border-color: vars.$mainTextColor25;
+      cursor: default;
+    }
+  }
+      
+  &__buttons-container{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 18px;
+  }
+}

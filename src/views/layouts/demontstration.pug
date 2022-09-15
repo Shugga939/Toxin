@@ -1,0 +1,18 @@
+//- External variables
+block variables
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(rel='icon' href=require('Images/favicons/favicon.svg') type='image/svg+xml' sizes='any')
+    title= title
+
+    block style
+      link(rel='stylesheet' href=require('Styles/base/main.scss'))
+
+  body
+    .bodyContainer
+      block content
+    block script

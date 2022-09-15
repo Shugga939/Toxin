@@ -1,0 +1,20 @@
+extends Views/layouts/demontstration.pug
+include Views/components/header/header
+include Views/components/footer/footer
+
+append style
+    link(href=require('headersAndFooters.scss') rel='stylesheet')
+
+block content
+  main.headers-footers
+    .headers-footers__logo
+      include Images/icons/logo-gray.svg
+    //- svg.headers-footers__logo(aria-label="toxin logo")
+    //-   use(xlink:href="#logo-gray")
+    .headers-footers__content
+      .headers-footers__block
+        +header()
+      .headers-footers__block
+        +header({ name: 'Юлий Цезарь' })
+    .headers-footers__block
+      +footer()

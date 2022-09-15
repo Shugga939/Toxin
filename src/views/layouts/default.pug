@@ -1,58 +1,33 @@
-//- Local variables
-- const fullYear = (new Date).getFullYear();
+include Views/components/header/header
+include Views/components/footer/footer
 
 //- External variables
 block variables
 
 doctype html
-html(lang='en' dir='ltr')
+html(lang='ru')
   head
-    //- Meta
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
-    meta(property='description' content='Hello world')
-
-    //- Favicons
+    block meta
+      meta(charset='utf-8')
+      meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+    
     link(rel='icon' href=require('Images/favicons/favicon.svg') type='image/svg+xml' sizes='any')
-    link(rel='icon' href=require('Images/favicons/favicon-32px.png') type='image/png' sizes='32x32')
 
-    //- Page title
     title= title
 
-    //- Page styles
     block style
-      //- common used styles
       link(rel='stylesheet' href=require('Styles/base/main.scss'))
+      link(rel='stylesheet' href=require('Views/components/header/header.scss'))
+      link(rel='stylesheet' href=require('Views/components/footer/footer.scss'))
 
-    //- Additional head block, e.g. for preload scripts in head
     block head
       script(src=require('Scripts/common.js') defer)
 
   body
-    //- Main header
-    .header-container
-      .header-content
-        a(href="index.html").header-left
-          img.app-logo(src=require('Images/app-logo.svg'))
-          span App demo
-        .header-middle
-          a(href="index.html") Home
-          a(href="contact.html") Contact
-          a(href="about.html") About
-        .header-right
-          span.glyphicon.glyphicon-user.mr-m
-          span Login
-
-    //- Main content
-    main.main-container
-      .main-content
-        block content
-
-    //- Main footer
-    .footer-container
-      div.
-        Copyleft #[span.copyleft] #{fullYear} #[a(href="https://github.com/webdiscus") @webdiscus].
-        Powered by #[a(href="https://github.com/webdiscus/pug-plugin") Pug Plugin].
+    .bodyContainer
+      +header()
+      block content
+      +footer()
 
     //- Page scripts
     block script

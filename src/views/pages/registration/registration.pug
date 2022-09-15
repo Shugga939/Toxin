@@ -1,0 +1,20 @@
+extends Views/layouts/default.pug
+include Views/components/registrationCard/registrationCard
+
+block meta
+  meta(name="description" content="Регистрация в сервисе Toxin")
+  meta(name="keywords" content="Отель, регистрация")
+
+block variables
+  - const title = 'Регистрация'
+
+append style
+  link(href=require('registration.scss') rel='stylesheet')
+
+append script
+  script(src=require('registration.js') defer='')
+
+block content
+  main.registration
+    .registration__container
+      +registrationCard()

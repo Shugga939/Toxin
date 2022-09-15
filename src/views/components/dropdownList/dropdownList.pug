@@ -1,0 +1,14 @@
+mixin dropdownList({ title, placeholder, id })
+  div(class = id).dropdown-list
+    span.dropdown-list__title
+      | #{title}
+    .dropdown-list__input-container
+      input(
+        type="text" 
+        placeholder=placeholder
+        readonly = "true"
+      ).dropdown-list__input
+      svg.dropdown-list__arrow
+        use(xlink:href="#expand-more")
+    .dropdown-list__list-wrapper
+      .dropdown-list__list 
