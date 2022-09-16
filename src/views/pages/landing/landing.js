@@ -1,7 +1,5 @@
-import './landing.scss';
-import initHeader from '../../components/header/header.js';
-import doubleDropdownDate from '../../components/dropdownDate/dropdownDate.js';
-import DropdownList from '../../components/dropdownList/dropdownList';
+import { doubleDropdownDate } from '../../components/dropdownDate/dropdownDate.js';
+import DropdownList from 'Views/components/dropdownList/dropdownList';
 
 const guestsList = [
   {
@@ -21,7 +19,6 @@ const guestsList = [
   },
 ];
 
-initHeader();
 const firstDateinput = document.querySelector('input[name="date-arrival"]');
 const secondDateinput = document.querySelector('input[name="date-leaving"]');
 const datepicker = new doubleDropdownDate(firstDateinput, secondDateinput)

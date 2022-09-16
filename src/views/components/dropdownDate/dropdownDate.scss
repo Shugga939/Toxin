@@ -41,11 +41,11 @@
     background: transparent;
 
     &::placeholder {
-      color: vars.$mainTextColor75;
+      color: vars.$mainTextColor50;
     }
 
     &::-moz-placeholder {
-      color: vars.$mainTextColor75;
+      color: vars.$mainTextColor50;
     }
 
     // @media (max-width: vars.$phone-width) {
@@ -55,6 +55,7 @@
 
     &:focus {
       border-color:  vars.$inputBorderColor--hover;
+      color: vars.$mainTextColor75;
       outline: none;
     }
 
@@ -73,6 +74,27 @@
     border-radius: 4px;
     background: transparent;
 
+      // &::before {
+      //   content: url(../../../assets/images/icons/expand-more.svg);
+      //   position: absolute;
+      //   width: 12px;
+      //   height: 12px;
+      //   top: calc(50% - 6px);
+      //   right: calc(50% - 6px);
+      // }
+
+    &--closed {
+      &::before {
+        animation: dropdown--open 0.1s ease;
+      }
+    }
+
+    &--opened {
+      &::before {
+        animation: dropdown--closed 0.1s ease;
+      }
+    }
+
     &:hover {
       background-color: rgba(128, 128, 128, 0.089);
       cursor: pointer;
@@ -88,4 +110,29 @@
     fill: vars.$mainTextColor50;
     cursor: pointer;
   }
+}
+
+
+@keyframes dropdown--open {
+0% {
+transform: rotate(0deg);
+}
+50% {
+transform: rotate(-90deg);
+}
+100% {
+transform: rotate(-180deg);
+}
+}
+
+@keyframes dropdown--close {
+0% {
+transform: rotate(-180deg);
+}
+50% {
+transform: rotate(-90deg);
+}
+100% {
+transform: rotate(0deg);
+}
 }

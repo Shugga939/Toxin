@@ -8,7 +8,7 @@ mixin dropdownList({ title, placeholder, id })
         placeholder=placeholder
         readonly = "true"
       ).dropdown-list__input
-      svg.dropdown-list__arrow
-        use(xlink:href="#expand-more")
+      span.dropdown-list__status
+        include Images/icons/expand-more.svg
     .dropdown-list__list-wrapper
       .dropdown-list__list 

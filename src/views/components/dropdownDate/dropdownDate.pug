@@ -11,8 +11,8 @@ mixin dropdownDate({ firstTitle, secondTitle })
           name="date-arrival"
         ).dropdown-date__input
         button(type='button').dropdown-date__button
-          svg.dropdown-date__arrow
-            use(xlink:href="#expand-more")
+          span.dropdown-date__status
+            include Images/icons/expand-more.svg
     label.dropdown-date__label
       span.dropdown-date__title
         | #{secondTitle}
@@ -24,5 +24,5 @@ mixin dropdownDate({ firstTitle, secondTitle })
           name="date-leaving"
           ).dropdown-date__input
         button(type='button').dropdown-date__button
-          svg.dropdown-date__arrow
-            use(xlink:href="#expand-more")
+          span.dropdown-date__status  
+            include Images/icons/expand-more.svg
