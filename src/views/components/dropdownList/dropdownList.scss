@@ -81,16 +81,14 @@
     top: 62px;
     overflow: hidden;
     z-index: 10;
-    transition: all 0.2s ease-out;
+    transition: all 0.3s ease-out;
   }
 
   &__list {
     @include typography.fontH3;
-    // position: absolute;
     max-width: 320px;
     height: 100%;
     width: 100%;
-    // visibility: hidden;
     background: #FFFFFF;
     text-transform: uppercase;
     border: 1px solid vars.$mainTextColor50;

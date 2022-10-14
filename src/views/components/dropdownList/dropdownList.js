@@ -5,11 +5,6 @@ export default class DropdownList {
     this.container = container;
     this.dataList = dataList;
     this.summaryDeclination = summaryDeclination || false
-    this.inputContainer = container.querySelector('.dropdown-list__input-container');
-    this.input = container.querySelector('.dropdown-list__input');
-    this.list = container.querySelector('.dropdown-list__list');
-    this.list_wrapper = container.querySelector('.dropdown-list__list-wrapper');
-    this.status = container.querySelector('.dropdown-list__status');
     this.isOpen = false;
     this.items = [];
     this._render();
@@ -19,6 +14,11 @@ export default class DropdownList {
   }
 
   _render() {
+    this.inputContainer = this.container.querySelector('.dropdown-list__input-container');
+    this.input = this.container.querySelector('.dropdown-list__input');
+    this.list = this.container.querySelector('.dropdown-list__list');
+    this.list_wrapper = this.container.querySelector('.dropdown-list__list-wrapper');
+    this.status = this.container.querySelector('.dropdown-list__status');
     this.dataList.forEach((data) => {
       const listItem = new ListItem(data.title, data.value, data.declination);
       this.items.push(listItem);
@@ -62,7 +62,6 @@ export default class DropdownList {
 
     function concatIfSummary (item) {
       const itemValue = item.getValue();
-      console.log(itemValue);
       result = Number(result) + itemValue;
       if (result === 0) result = ''
     }
@@ -74,6 +73,7 @@ export default class DropdownList {
     function closeList() {
       that.list.style.borderColor = 'rgba(31, 32, 65, 0.25)'
       that.list_wrapper.style.maxHeight = '0px';
+      that.list.style.display = 'none';
       that.status.classList.remove('dropdown-svg--opened');
       that.status.classList.add('dropdown-svg--closed');
       that.input.classList.remove('dropdown-list__input--active');
@@ -83,6 +83,7 @@ export default class DropdownList {
     function openList() {
       that.list.style.borderColor = 'rgba(31, 32, 65, 0.5)'
       that.list_wrapper.style.maxHeight = '500px';
+      that.list.style.display = 'block';
       that.status.classList.remove('dropdown-svg--closed');
       that.status.classList.add('dropdown-svg--opened');
       that.input.classList.add('dropdown-list__input--active');

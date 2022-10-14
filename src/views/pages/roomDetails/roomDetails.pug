@@ -1,0 +1,77 @@
+extends Views/layouts/default.pug
+include Views/components/advantages/advantages
+include Views/components/roomsPhoto/roomsPhoto
+include Views/components/pieChart/pieChart
+
+
+
+append meta
+  meta(name="description", content="Поиск номеров")
+  meta(name="keywords" content="отель, бронирование, комнаты, отдых")
+
+block variables
+  - const title = 'Подробности'
+
+append style
+  link(href=require('roomDetails.scss') rel='stylesheet')
+  link(href=require('Styles/plugins/datepicker.css') rel='stylesheet')
+
+append script
+  script(src=require('./roomDetails.js') defer='')
+
+
+block content
+  main.roomDetails
+    .roomDetails__photo-container
+      +roomsPhoto([
+        'roomDetails_1.png',
+        'roomDetails_2.png',
+        'roomDetails_3.png',
+      ])
+    .roomDetails__info-container
+      .roomDetails__info
+        .roomDetails__advantages
+          h3.roomDetails__title
+            | Сведения о номере 
+          +advantages({
+            items: [
+              {
+                title: "Комфорт",
+                description: "Шумопоглащиющие стены",
+                icon: "insert-emoticon"
+              },
+              {
+                title: "Удобство",
+                description: "Окно в каждой из спален",
+                icon: "location-city"
+              },
+              {
+                title: "Уют",
+                description: "Номер оснащен камином",
+                icon: "whatshot"
+              },
+            ]
+          })
+        .roomDetails__impressions
+          h3.roomDetails__title
+            | Впечатления от номера 
+          +pieChart({
+            voices: [
+              {
+              grade: "Великолепно",
+              num: 130
+              },
+              {
+                grade: "Хорошо",
+                num: 65
+              },
+                {
+                grade: "Удовлетворительно",
+                num: 65
+              },
+                {
+                grade: "Разочарован",
+                num: 0
+              },
+            ]
+          })

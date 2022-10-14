@@ -1,0 +1,6 @@
+mixin roomsPhoto( paths )
+	.rooms-photo
+		img(src=require(`Images/photos/${paths[0]}`) alt="Фото 1" class="rooms-photo__main-photo rooms-photo__photo")
+		.rooms-photo__additional-photos
+			img(src=require(`Images/photos/${paths[1]}`) alt="Фото 2" class="rooms-photo__additional-photo rooms-photo__photo")
+			img(src=require(`Images/photos/${paths[2]}`) alt="Фото 3" class="rooms-photo__additional-photo photo-rooms-photo__photo")

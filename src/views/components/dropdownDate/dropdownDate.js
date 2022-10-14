@@ -42,6 +42,9 @@ export class doubleDropdownDate {
       document.addEventListener('click', outsideClick)
       that.datepicker.show();
       that.isShow = true
+      that.firstInput.attr('disabled', true);
+      that.secondInput.attr('disabled', true);
+
       if (triggeredButtonIsFirst) {
         that.secondInputButton.attr('disabled', true);
         that.firstInputStatus.removeClass('dropdown-svg--closed');
@@ -59,6 +62,9 @@ export class doubleDropdownDate {
       that.isShow = false
       that.secondInputButton.attr('disabled', false);
       that.firstInputButton.attr('disabled', false);
+      that.firstInput.attr('disabled', false);
+      that.secondInput.attr('disabled', false);
+
       if (that.firstInputStatus.hasClass('dropdown-svg--opened')) {
         that.firstInputStatus.removeClass('dropdown-svg--opened');
         that.firstInputStatus.addClass('dropdown-svg--closed');

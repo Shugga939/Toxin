@@ -1,0 +1,14 @@
+include Views/components/advantages/advantageIcons
+
+mixin advantages({ items })
+  section.advantages
+    ul.advantages__list 
+      each val, index in items
+        li.advantages__item
+          div.advantages__svg-container
+            +advantageIcons(icon = items[index].icon)
+          span.advantages__text
+            strong.advantages__title
+              | #{items[index].title}
+            p.advantages__description
+              | #{items[index].description}

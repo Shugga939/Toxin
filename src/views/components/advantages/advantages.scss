@@ -1,0 +1,53 @@
+@use '../../../assets/styles/base/variables' as vars;
+@use '../../../assets/styles/base/typography';
+
+.advantages {
+  @include typography.ordinaryFont();
+  display: flex;
+  width: 280px;
+  justify-content: start;
+
+  &__list {
+    width: 100%;
+  }
+
+  &__item {
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__svg-container {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      max-width: 45px;
+      max-height: 45px;
+    }
+  }
+
+  &__text {
+    display: inline-flex;
+    max-width: 200px;
+    flex-direction: column;
+    line-height: 24px;
+    white-space: pre-wrap;
+    margin-left: 13px;
+  }
+
+  &__title{
+    color: vars.$mainTextColor75;
+  }
+
+  &__description {
+    color: vars.$mainTextColor75;
+  }
+}
