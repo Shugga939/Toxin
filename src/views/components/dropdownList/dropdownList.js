@@ -1,9 +1,10 @@
 import completions from 'Scripts/helpers/completions';
 
 export default class DropdownList {
-  constructor(container, dataList) {
+  constructor(container, dataList, summaryDeclination) {
     this.container = container;
     this.dataList = dataList;
+    this.summaryDeclination = summaryDeclination || false
     this.inputContainer = container.querySelector('.dropdown-list__input-container');
     this.input = container.querySelector('.dropdown-list__input');
     this.list = container.querySelector('.dropdown-list__list');
@@ -44,14 +45,27 @@ export default class DropdownList {
   _updateInput() {
     let result = '';
     this.items.forEach((item) => {
+      this.summaryDeclination? concatIfSummary(item) : defaultConcat(item)
+    });
+    if (this.summaryDeclination && result !== '') result = completions(result, this.summaryDeclination)
+    this.input.value = result;
+
+    function defaultConcat (item) {
       const itemValue = item.getResult();
+
       if (!result || itemValue === '') {
         result += `${itemValue}`;
       } else {
         result += `, ${itemValue}`;
       }
-    });
-    this.input.value = result;
+    }
+
+    function concatIfSummary (item) {
+      const itemValue = item.getValue();
+      console.log(itemValue);
+      result = Number(result) + itemValue;
+      if (result === 0) result = ''
+    }
   }
 
   _addListeners() {
@@ -108,6 +122,13 @@ export default class DropdownList {
     this.clearButton.addEventListener('click', clear);
     this.confirmButton.addEventListener('click', confirm);
     this.inputContainer.addEventListener('click', toggleList);
+    this.inputContainer.addEventListener('keypress', (e)=> {
+      if (e.keyCode==13) toggleList(e)
+    });
+    this.confirmButton.addEventListener('click', (e)=> {
+      if (e.keyCode==13) confirm(e)
+    });
+
   }
 }
 
@@ -179,6 +200,10 @@ class ListItem {
 
   getResult() {
     return this.value !== 0 ? completions(this.value, this.declination) : '';
+  }
+
+  getValue() {
+    return this.value
   }
 
   resetCounter() {

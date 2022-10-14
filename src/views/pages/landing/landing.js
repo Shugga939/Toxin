@@ -19,8 +19,10 @@ const guestsList = [
   },
 ];
 
+const summaryDeclination = ['Гость', 'Гостя', 'Гостей'];
+
 const firstDateinput = document.querySelector('input[name="date-arrival"]');
 const secondDateinput = document.querySelector('input[name="date-leaving"]');
 const datepicker = new doubleDropdownDate(firstDateinput, secondDateinput)
 const guestsLists = document.querySelectorAll('.guests-list');
-guestsLists.forEach((list) => new DropdownList(list, guestsList));
+guestsLists.forEach((list) => new DropdownList(list, guestsList, summaryDeclination));

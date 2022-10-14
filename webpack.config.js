@@ -20,7 +20,7 @@ module.exports = (env, argv) => {
       landing: `${PAGES_DIR}/landing/landing.pug`,
       signIn: `${PAGES_DIR}/signIn/signIn.pug`,
       registration: `${PAGES_DIR}/registration/registration.pug`,
-
+      roomDetails: `${PAGES_DIR}/roomDetails/roomDetails.pug`,
     },
 
     output: {

@@ -24,13 +24,15 @@
   &__input {
     @include typography.ordinaryFont();
     line-height: 18px;
-    padding: 12px 15px;
+    padding: 12px 40px 12px 15px;
     width: 100%;
     border: 1px solid;
     border-color: vars.$inputBorderColor;
     border-radius: 4px;
     cursor: pointer;
     background: transparent;
+    user-select: none;
+    text-overflow:ellipsis;
 
     &::placeholder {
       color: vars.$mainTextColor50;
@@ -127,6 +129,7 @@
     width: 30px;
     height: 30px;
     left: 220px;
+    padding-bottom: 1px;
     color: vars.$mainTextColor50;
     border: 1px solid vars.$mainTextColor50;
     box-sizing: border-box;
@@ -137,7 +140,7 @@
     cursor: pointer;
     
     &:last-child {
-      padding-top: 2px;
+      padding-top: 4px;
     }
   
     &--unactive{

@@ -101,38 +101,45 @@
     }
   }
 
-  &__arrow {
+  &__status {
     position: absolute;
-    top: calc(50% - 6px);
-    right: 16px;
+    display: flex;
+    align-items: center;
     width: 12px;
     height: 12px;
-    fill: vars.$mainTextColor50;
+    top: calc(50% - 6px);
+    right: 16px;
+    border: none;
     cursor: pointer;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
 
-@keyframes dropdown--open {
-0% {
-transform: rotate(0deg);
-}
-50% {
-transform: rotate(-90deg);
-}
-100% {
-transform: rotate(-180deg);
-}
-}
+// @keyframes dropdown--open {
+// 0% {
+// transform: rotate(0deg);
+// }
+// 50% {
+// transform: rotate(-90deg);
+// }
+// 100% {
+// transform: rotate(-180deg);
+// }
+// }
 
-@keyframes dropdown--close {
-0% {
-transform: rotate(-180deg);
-}
-50% {
-transform: rotate(-90deg);
-}
-100% {
-transform: rotate(0deg);
-}
-}
+// @keyframes dropdown--close {
+// 0% {
+// transform: rotate(-180deg);
+// }
+// 50% {
+// transform: rotate(-90deg);
+// }
+// 100% {
+// transform: rotate(0deg);
+// }
+// }
