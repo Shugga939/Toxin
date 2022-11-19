@@ -8,6 +8,3 @@ mixin button({ type = "button", href = '#', classes = '', text = null })
 	else if type === 'link'
 		a(href=href class=classes).button
 			| #{text}
-	else
-		span
-			| this type of button is not valid

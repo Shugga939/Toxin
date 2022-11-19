@@ -1,0 +1,66 @@
+include Views/components/button/button
+include Views/components/dropdownDate/dropdownDate
+include Views/components/dropdownList/dropdownList
+
+mixin bookingCard(details)
+  -var { number, type, priceOfOneDay, days, sum, discount, taxes, total } = details
+  .booking-card
+    .booking-card__container
+      .booking-card__info
+        span.booking-card__room-number-wrapper
+          | № 
+          span.booking-card__room-number
+            | #{number}
+          span.booking-card__room-type
+            | #{type} 
+        span.booking-card__price-wrapper
+          span.booking-card__price
+            | #{priceOfOneDay}₽ 
+          | в сутки
+      form.booking-card__form
+        .booking-card__dates
+          +dropdownDate({
+            firstTitle: 'Прибытие',
+            secondTitle: 'Выезд',
+          })
+        .booking-card__guests
+          +dropdownList({
+            title: 'Гости',
+            placeholder: 'Сколько гостей',
+            classContainer: 'guests-list'
+          })
+        .booking-card__calculation
+          .calculation
+            .calculation__item
+              span.calculation__price-of-one-day
+                | #{priceOfOneDay}₽ х 
+                span.calculation__days
+                  | #{days} суток
+              span.calculation__sum
+                | #{sum}₽
+            .calculation__item
+              span.calculation__option
+                | Сбор за услуги: 
+                span.calculation__discount
+                  | скидка #{discount}₽
+              span.calculation__reference(title='Ваша личная скидка')
+                | i
+              span.calculation__tax
+                | #{taxes[0]}₽
+            .calculation__item
+              span.calculation__option
+                | Сбор за дополнительные услуги
+              span.calculation__reference(title='Чаевые')
+                | i
+              span.calculation__tax
+                | #{taxes[1]}₽
+            .calculation__total
+              span Итого 
+              span.calculation__line
+              span.calculation__total-price
+                | #{total}₽
+        +button({
+          type: 'submit',
+          classes: 'button--confirm button--high',
+          text: 'Забронировать'
+        })

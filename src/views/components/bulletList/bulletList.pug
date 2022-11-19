@@ -1,0 +1,6 @@
+mixin bulletList({ items }) 
+  ul.bullet-list
+    each val in items
+      li.bullet-list__item
+        p.bullet-list__text
+          | #{val}

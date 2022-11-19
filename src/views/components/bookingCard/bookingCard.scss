@@ -1,0 +1,134 @@
+@use '../../../assets/styles/base/variables' as vars;
+@use '../../../assets/styles/base/typography';
+@use '../../components/dropdownDate/dropdownDate';
+@use '../../components/dropdownList/dropdownList';
+
+.booking-card {
+  @include typography.ordinaryFont();
+  width: 380px;
+  background-color: vars.$mainBackgroundColor;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+
+  &__container {
+    padding: 40px 30px 30px;
+  }
+
+  &__info {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    line-height: 17px;
+    font-weight: bold;
+  }
+
+  &__room-number-wrapper {
+    color: vars.$mainTextColor;
+    max-width: 50%;
+  }
+
+  &__room-number {
+    @include typography.fontH1();
+    margin-right: 9px;
+    overflow-wrap: break-word;
+  }
+
+  &__room-type {
+    font-size: 15px;
+    color: vars.$mainAccentColor;
+    overflow-wrap: break-word;
+  }
+
+  &__price-wrapper {
+    max-width: 50%;
+    font-size: 12px;
+    overflow-wrap: break-word;
+    font-weight: normal;
+  }
+
+  &__price {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &__guests {
+    margin-top: 20px;
+  }
+
+  &__calculation {
+    margin-bottom: 19px;
+  }
+}
+
+.calculation {
+  margin-top: 18px;
+
+  &__item {
+    margin-bottom: 11px;
+    display: flex;
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__price-of-one-day {
+    max-width: 215px;
+  }
+
+  &__tax {
+    margin-left: auto;
+    align-self: start;
+    line-height: 20px;
+  }
+
+  &__reference {
+    align-self: start;
+    margin-bottom: 6px;
+    margin-left: 5px;
+    display: flex;
+    min-width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    justify-content: center;
+    align-items: center;
+    color: vars.$mainTextColor25;
+    border: 1px solid vars.$mainTextColor25;
+    border-radius: 50%;
+    cursor: default;
+  }
+
+  &__sum {
+    margin-left: auto;
+  }
+
+  &__option {
+    max-width: 215px;
+    line-height: 19px;
+  }
+
+  &__total {
+    @include typography.fontH2();
+    color: vars.$mainTextColor;
+    margin-top: 28px;
+    display: flex;
+    align-items: baseline ;
+  }
+
+  &__line {
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 100%;
+    border-bottom: 1px dotted vars.$mainTextColor50;
+  }
+
+  &__total-price {
+    white-space: nowrap;
+    margin-right: -10px;
+  }
+}
+  
+

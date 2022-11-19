@@ -1,5 +1,5 @@
-mixin dropdownList({ title, placeholder, id })
-  div(class = id).dropdown-list
+mixin dropdownList({ title, placeholder, classContainer })
+  div(class = classContainer).dropdown-list
     span.dropdown-list__title
       | #{title}
     .dropdown-list__input-container
