@@ -1,0 +1,192 @@
+@use '../../../assets/styles/base/variables' as vars;
+@use '../../../assets/styles/base/typography';
+@use '../../components/dropdownDate/dropdownDate';
+
+
+.filter {
+  width: 100%;
+  display: flex;
+
+  &__container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 30px 140px;
+  }
+
+  &__filters-form {
+    width: 266px;
+    display: flex;
+  }
+
+  // &__filters-item {
+
+  //   h3 {
+  //     @include typography.fontH3()
+  //   }
+  // }
+
+
+  &__dates {
+    width: 100%;
+  }
+
+  // &__content-container {
+  //   position: relative;
+  //   display: flex;
+  //   width: 100%;
+  //   max-width: 1260px;
+  //   padding: 70px 50px;
+  //   justify-content: space-between;
+  //   align-items: flex-start;
+
+  //   @media (max-width: vars.$md-desktop-width) {
+  //     padding: 30px 20px;
+  //     flex-direction: column;
+  //     align-items: center;
+  //   }
+
+  //   @media (max-width: vars.$phone-width) {
+  //     padding: 15px 5px;
+  //     flex-direction: column;
+  //   }
+  // }
+
+  // &__title {
+  //   @include typography.fontH2()
+  // }
+
+  // &__info {
+  //   display: flex;
+  //   flex-direction: column;
+
+  //   @media (max-width: vars.$md-desktop-width) {
+  //     width: 100%;
+  //     align-items: center;
+  //   }
+  // }
+
+  // &__booking {
+  //   margin-left: 40px;
+
+  //   @media (max-width: vars.$md-desktop-width) {
+  //     margin-left: 0px;
+  //     margin-top: 30px;
+  //   }
+    
+  //   @media (max-width: vars.$sm-desktop-width) {
+  //     width: 100%;
+  //     display: flex;
+  //     justify-content: center;
+  //     margin-left: -5px;
+  //     margin-right: -5px;
+  //   }
+  // }
+
+  // &__info-row {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   max-width: 710px;
+
+  //   @media (max-width: vars.$md-desktop-width) {
+  //     justify-content: space-between;
+  //     width: 100%;
+  //   }
+
+  //   @media (max-width: vars.$bp670) {
+  //     width: auto ;
+  //     flex-direction: column;
+  //     align-items: flex-start;
+  //   }
+  // }
+
+  // // &__advantages {
+  //   // h3 {
+  //   // }
+  // // }
+
+  // &__impressions {
+  //   margin-left: auto;
+  //   margin-right: 38px;
+
+  //   @media (max-width: vars.$md-desktop-width) {
+  //     margin: 0;
+  //   }
+
+  //   @media (max-width: vars.$bp670) {
+  //     margin-top: 30px;
+  //   }
+
+  //   h3 {
+  //     margin-bottom: 17px;
+  //   }
+  // }
+
+  // &__reviews {
+  //   width: 100%;
+  //   margin-top: 13px;
+  //   margin-bottom: 32px;
+
+  //   @media (max-width: vars.$md-desktop-width) {
+  //     margin-top: 30px;
+  //   }
+  // }
+
+  // &__reviews-head {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   margin-bottom: 20px;
+
+  //   >span {
+  //     @include typography.ordinaryFont();
+  //     transform: translateY(2px);
+
+  //     @media (max-width: vars.$phone-width) {
+  //       display: none;
+  //     }
+  //   }
+
+  //   @media (max-width: vars.$phone-width) {
+  //     h3 {
+  //       margin: auto;
+  //     }
+  //   }
+  // }
+
+  // &__bullet-list {
+  //   margin-right: 10px;
+
+  //   h3 {
+  //     margin-left: 20px;
+  //     margin-bottom: 18px;
+
+  //     @media (max-width: vars.$bp670) {
+  //       margin-left: 0px;
+  //     }
+  //   }
+  // }
+
+  // &__cancel {
+  //   max-width: 325px;
+  //   margin-left: auto;
+  //   margin-right: 25px;
+
+  //   @media (max-width: vars.$md-desktop-width) {
+  //     margin-right: 0px;
+  //   }
+
+  //   @media (max-width: vars.$bp670) {
+  //     margin: 0;
+  //     margin-top: 30px;
+  //   }
+
+  //   h3 {
+  //     margin-bottom: 18px;
+  //   }
+  // }
+
+  // &__cancel-text {
+  //   @include typography.ordinaryFont();
+  //   color: vars.$mainTextColor75;
+  // }
+}

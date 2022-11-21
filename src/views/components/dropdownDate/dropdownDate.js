@@ -4,9 +4,11 @@ window.$ = require('jquery')
 window.jQuery = require('jquery')
 
 export class doubleDropdownDate {
-  constructor(firstInput, secondInput) {
+  constructor(firstInput, secondInput, firstDate, secondDate) {
     this.firstInput = $(firstInput)
     this.secondInput = $(secondInput)
+    this.firstDate = firstDate || null
+    this.secondDate = secondDate || null
     this.isShow = false
     this._initDatepicker()
     this._addEventListeners()
@@ -28,6 +30,12 @@ export class doubleDropdownDate {
         that.secondInput.val(date.split(',')[1]);
       }
     });
+    if (this.firstDate) {
+      this.datepicker.selectDate(new Date(this.firstDate))
+    }
+    if (this.secondDate) {
+      this.datepicker.selectDate(new Date(this.secondDate))
+    }
   }
 
   _addEventListeners() {
@@ -111,6 +119,86 @@ export class doubleDropdownDate {
     this.secondInputButton.on('click', buttonsClickHandler);
     this.firstInput.on('keyup', validateInputData);
     this.secondInput.on('keyup', validateInputData);
+    this.applyButton.on('click', closeDatepicker);
+  }
+}
+
+export class singleDropdownDate {
+  constructor(input, firstDate, secondDate) {
+    this.input = $(input)
+    this.firstDate = firstDate || null
+    this.secondDate = secondDate || null
+    this.isShow = false
+    this._initDatepicker()
+    this._addEventListeners()
+  }
+
+  _initDatepicker() {
+    const that = this
+    this.datepicker = this.input.datepicker().data('datepicker');
+    // that.input.attr('disabled', true);
+    this.input.datepicker({
+      range: true,
+      todayButton: true,
+      minDate: new Date(),
+      clearButton: true,
+      toggleSelected: true,
+      multipleDatesSeparator: ' - ',
+    });
+
+    if (this.firstDate) {
+      this.datepicker.selectDate(new Date(this.firstDate))
+    }
+    if (this.secondDate) {
+      this.datepicker.selectDate(new Date(this.secondDate))
+    }
+  }
+
+  _addEventListeners() {
+    const that = this
+    this.inputButton = $(this.input).siblings('.dropdown-date__button');
+    this.inputStatus = this.inputButton.children('.dropdown-date__status');
+    this.applyButton = $('.datepicker').find('span[data-action="today"]');
+
+    function openDatepicker() {
+      document.addEventListener('click', outsideClick)
+      that.datepicker.show();
+      that.isShow = true
+      that.inputStatus.removeClass('dropdown-svg--closed');
+      that.inputStatus.addClass('dropdown-svg--opened');
+    }
+
+    function closeDatepicker() {
+      document.removeEventListener('click', outsideClick)
+      that.datepicker.hide();
+      that.isShow = false
+      that.inputStatus.removeClass('dropdown-svg--opened');
+      that.inputStatus.addClass('dropdown-svg--closed');
+    }
+
+    function buttonsClickHandler(e) {
+      that.isShow? closeDatepicker() : openDatepicker()
+    }
+
+    function outsideClick(e) {
+      if (that.isShow) {
+        const { target } = e
+        const targetIsButton = target.closest('.dropdown-date__button')
+        const targetIsDatePicker = target.closest('.datepickers-container')
+          || target.closest('.dropdown-date__input')
+          || target.closest('.datepicker--cell')
+          || target.closest('.datepicker--nav')
+          || target.closest('.datepicker--nav-action')
+          || target.closest('.datepicker--nav-title')
+          
+        if (!targetIsDatePicker && !targetIsButton) {
+          closeDatepicker()
+        }
+      }
+    }
+
+    this.input.on('click', buttonsClickHandler);
+    this.inputButton.on('click', buttonsClickHandler);
     this.applyButton.on('click', closeDatepicker);
   }
 }

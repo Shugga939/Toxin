@@ -5,6 +5,7 @@
 
 .booking-card {
   @include typography.ordinaryFont();
+  min-width: 380px;
   width: 380px;
   background-color: vars.$mainBackgroundColor;
   border: 1px solid rgba(0, 0, 0, 0.12);

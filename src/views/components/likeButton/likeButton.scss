@@ -1,9 +1,12 @@
 @use '../../../assets/styles/base/variables' as vars;
 @use '../../../assets/styles/base/typography';
+@use '../../../assets/styles/base/animations';
+
 
 .likeButton {
   position: relative;
   display: flex;
+  width: min-content;
   align-items: center;
   font-family: inherit;
   padding: 0 9px 0 5px;
@@ -16,20 +19,17 @@
   cursor: pointer;
   user-select: none;
 
-  &:hover {
-    border-color: vars.$mainAccentColor;
-  }
-  
   &--liked {
     color: vars.$mainAccentColor;
     border-color: vars.$mainAccentColor;
-    animation-name: changeSize;
+    animation-name: tap;
     animation-duration: 0.25s;
   }
 
   &__icon {
     display: flex;
     height: 10px;
+    width: 10px;
     transition: 0.25s;
 
     svg {
@@ -43,23 +43,10 @@
   }
 
   &__counter {
+    width: min-content;
     margin-left: 5px;
     font-size: 10px;
     color: inherit;
     transition: transform 0.25s;
-  }
-}
-
-@keyframes changeSize {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.25);
-  }
-
-  100% {
-    transform: scale(1);
   }
 }

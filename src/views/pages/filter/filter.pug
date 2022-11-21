@@ -1,10 +1,5 @@
 extends Views/layouts/default.pug
-include Views/components/advantages/advantages
-include Views/components/roomsPhoto/roomsPhoto
-include Views/components/pieChart/pieChart
-include Views/components/review/review
-include Views/components/bulletList/bulletList
-include Views/components/bookingCard/bookingCard
+include Views/components/dropdownDate/dropdownDate
 
 
 append meta
@@ -12,24 +7,26 @@ append meta
   meta(name="keywords" content="отель, бронирование, комнаты, отдых")
 
 block variables
-  - const title = 'Подробности'
+  - const title = 'Результаты поиска'
 
 append style
-  link(href=require('roomDetails.scss') rel='stylesheet')
+  link(href=require('filter.scss') rel='stylesheet')
 
 append script
-  script(src=require('./roomDetails.js') defer='')
+  script(src=require('./filter.js') defer='')
 
 
 block content
-  main.room-details
-    .room-details__photo-container
-      +roomsPhoto([
-        'roomDetails_1.png',
-        'roomDetails_2.png',
-        'roomDetails_3.png',
-      ])
-    .room-details__content-container
+  main.filter
+    .filter__container
+      form.filter__filters-form
+        .filter__filters-item.filter__dates
+          //- h3.filter__block-title
+          //-   | Даты пребывания в отеле
+          +dropdownDate({
+            firstTitle: 'Даты пребывания в отеле'
+          })
+    //- .room-details__content-container
       .room-details__info
         .room-details__info-row
           .room-details__advantages

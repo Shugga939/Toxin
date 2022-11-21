@@ -21,6 +21,7 @@ module.exports = (env, argv) => {
       signIn: `${PAGES_DIR}/signIn/signIn.pug`,
       registration: `${PAGES_DIR}/registration/registration.pug`,
       roomDetails: `${PAGES_DIR}/roomDetails/roomDetails.pug`,
+      filter: `${PAGES_DIR}/filter/filter.pug`,
     },
 
     output: {
