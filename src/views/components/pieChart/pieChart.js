@@ -1,6 +1,6 @@
+import 'Scripts/plugins/chart.min';
 window.$ = require('jquery')
 window.jQuery = require('jquery')
-const Chart = require('./chart.min.js');
 
 class PieChart {
   constructor(parent) {

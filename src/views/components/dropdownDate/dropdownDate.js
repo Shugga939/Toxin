@@ -16,9 +16,9 @@ export class doubleDropdownDate {
 
   _initDatepicker() {
     const that = this
-    this.datepicker = this.firstInput.datepicker().data('datepicker');
+    this.datepicker = this.firstInput.airDatepicker().data('airDatepicker');
     this.firstInput.attr('disabled', false)
-    this.firstInput.datepicker({
+    this.firstInput.airDatepicker({
       range: true,
       todayButton: true,
       clearButton: true,
@@ -44,7 +44,7 @@ export class doubleDropdownDate {
     this.firstInputStatus = this.firstInputButton.children('.dropdown-date__status');
     this.secondInputButton = $(this.secondInput).siblings('.dropdown-date__button');
     this.secondInputStatus = this.secondInputButton.children('.dropdown-date__status');
-    this.applyButton = $('.datepicker').find('span[data-action="today"]');
+    this.applyButton = $('.airDatepicker').find('span[data-action="today"]');
 
     function openDatepicker(triggeredButtonIsFirst) {
       document.addEventListener('click', outsideClick)
@@ -104,10 +104,10 @@ export class doubleDropdownDate {
         const { target } = e
         const targetIsButton = target.closest('.dropdown-date__button')
         const targetIsDatePicker = target.closest('.datepickers-container')
-          || target.closest('.datepicker--cell')
-          || target.closest('.datepicker--nav')
-          || target.closest('.datepicker--nav-action')
-          || target.closest('.datepicker--nav-title')
+        || target.closest('.airDatepicker')
+        || target.closest('.airDatepicker--cell')
+        || target.closest('.airDatepicker--nav-action')
+        || target.closest('.airDatepicker--nav-title')
   
         if (!targetIsDatePicker && !targetIsButton) {
           closeDatepicker()
@@ -135,9 +135,8 @@ export class singleDropdownDate {
 
   _initDatepicker() {
     const that = this
-    this.datepicker = this.input.datepicker().data('datepicker');
-    // that.input.attr('disabled', true);
-    this.input.datepicker({
+    this.datepicker = this.input.airDatepicker().data('airDatepicker');
+    this.input.airDatepicker({
       range: true,
       todayButton: true,
       minDate: new Date(),
@@ -158,7 +157,7 @@ export class singleDropdownDate {
     const that = this
     this.inputButton = $(this.input).siblings('.dropdown-date__button');
     this.inputStatus = this.inputButton.children('.dropdown-date__status');
-    this.applyButton = $('.datepicker').find('span[data-action="today"]');
+    this.applyButton = $('.airDatepicker').find('span[data-action="today"]');
 
     function openDatepicker() {
       document.addEventListener('click', outsideClick)
@@ -176,7 +175,7 @@ export class singleDropdownDate {
       that.inputStatus.addClass('dropdown-svg--closed');
     }
 
-    function buttonsClickHandler(e) {
+    function сlickHandler(e) {
       that.isShow? closeDatepicker() : openDatepicker()
     }
 
@@ -185,11 +184,11 @@ export class singleDropdownDate {
         const { target } = e
         const targetIsButton = target.closest('.dropdown-date__button')
         const targetIsDatePicker = target.closest('.datepickers-container')
-          || target.closest('.dropdown-date__input')
-          || target.closest('.datepicker--cell')
-          || target.closest('.datepicker--nav')
-          || target.closest('.datepicker--nav-action')
-          || target.closest('.datepicker--nav-title')
+          || target.closest('.dropdown-date__label')
+          || target.closest('.airDatepicker')
+          || target.closest('.airDatepicker--cell')
+          || target.closest('.airDatepicker--nav-action')
+          || target.closest('.airDatepicker--nav-title')
           
         if (!targetIsDatePicker && !targetIsButton) {
           closeDatepicker()
@@ -197,8 +196,8 @@ export class singleDropdownDate {
       }
     }
 
-    this.input.on('click', buttonsClickHandler);
-    this.inputButton.on('click', buttonsClickHandler);
+    this.input.on('click', сlickHandler);
+    this.inputButton.on('click', сlickHandler);
     this.applyButton.on('click', closeDatepicker);
   }
 }

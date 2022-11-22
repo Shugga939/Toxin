@@ -3,15 +3,15 @@ window.jQuery = require('jquery')
 
 ;(function (window, $, undefined) { ;(function () {
     var VERSION = '2.2.3',
-        pluginName = 'datepicker',
-        autoInitSelector = '.datepicker-here',
-        $body, $datepickersContainer,
+        pluginName = 'airDatepicker',
+        autoInitSelector = '.airDatepicker-here',
+        $body, $airDatepickersContainer,
         containerBuilt = false,
         baseTemplate = '' +
-            '<div class="datepicker">' +
-            '<i class="datepicker--pointer"></i>' +
-            '<nav class="datepicker--nav"></nav>' +
-            '<div class="datepicker--content"></div>' +
+            '<div class="airDatepicker">' +
+            '<i class="airDatepicker--pointer"></i>' +
+            '<nav class="airDatepicker--nav"></nav>' +
+            '<div class="airDatepicker--content"></div>' +
             '</div>',
         defaults = {
             classes: '',
@@ -101,7 +101,7 @@ window.jQuery = require('jquery')
             'altDown': [18, 40],
             'ctrlShiftUp': [16, 17, 38]
         },
-        datepicker;
+        airDatepicker;
 
     var Datepicker  = function (el, options) {
         this.el = el;
@@ -142,9 +142,9 @@ window.jQuery = require('jquery')
         this.init()
     };
 
-    datepicker = Datepicker;
+    airDatepicker = Datepicker;
 
-    datepicker.prototype = {
+    airDatepicker.prototype = {
         VERSION: VERSION,
         viewIndexes: ['days', 'months', 'years'],
 
@@ -165,31 +165,31 @@ window.jQuery = require('jquery')
                 if (this.opts.keyboardNav && !this.opts.onlyTimepicker) {
                     this._bindKeyboardEvents();
                 }
-                this.$datepicker.on('mousedown', this._onMouseDownDatepicker.bind(this));
-                this.$datepicker.on('mouseup', this._onMouseUpDatepicker.bind(this));
+                this.$airDatepicker.on('mousedown', this._onMouseDownDatepicker.bind(this));
+                this.$airDatepicker.on('mouseup', this._onMouseUpDatepicker.bind(this));
             }
 
             if (this.opts.classes) {
-                this.$datepicker.addClass(this.opts.classes)
+                this.$airDatepicker.addClass(this.opts.classes)
             }
 
             if (this.opts.timepicker) {
-                this.timepicker = new $.fn.datepicker.Timepicker(this, this.opts);
+                this.timepicker = new $.fn.airDatepicker.Timepicker(this, this.opts);
                 this._bindTimepickerEvents();
             }
 
             if (this.opts.onlyTimepicker) {
-                this.$datepicker.addClass('-only-timepicker-');
+                this.$airDatepicker.addClass('-only-timepicker-');
             }
 
-            this.views[this.currentView] = new $.fn.datepicker.Body(this, this.currentView, this.opts);
+            this.views[this.currentView] = new $.fn.airDatepicker.Body(this, this.currentView, this.opts);
             this.views[this.currentView].show();
-            this.nav = new $.fn.datepicker.Navigation(this, this.opts);
+            this.nav = new $.fn.airDatepicker.Navigation(this, this.opts);
             this.view = this.currentView;
 
             this.$el.on('clickCell.adp', this._onClickCell.bind(this));
-            this.$datepicker.on('mouseenter', '.datepicker--cell', this._onMouseEnterCell.bind(this));
-            this.$datepicker.on('mouseleave', '.datepicker--cell', this._onMouseLeaveCell.bind(this));
+            this.$airDatepicker.on('mouseenter', '.airDatepicker--cell', this._onMouseEnterCell.bind(this));
+            this.$airDatepicker.on('mouseleave', '.airDatepicker--cell', this._onMouseLeaveCell.bind(this));
 
             this.inited = true;
         },
@@ -225,15 +225,15 @@ window.jQuery = require('jquery')
 
         _defineLocale: function (lang) {
             if (typeof lang == 'string') {
-                this.loc = $.fn.datepicker.language[lang];
+                this.loc = $.fn.airDatepicker.language[lang];
                 if (!this.loc) {
                     console.warn('Can\'t find language "' + lang + '" in Datepicker.language, will use "ru" instead');
-                    this.loc = $.extend(true, {}, $.fn.datepicker.language.ru)
+                    this.loc = $.extend(true, {}, $.fn.airDatepicker.language.ru)
                 }
 
-                this.loc = $.extend(true, {}, $.fn.datepicker.language.ru, $.fn.datepicker.language[lang])
+                this.loc = $.extend(true, {}, $.fn.airDatepicker.language.ru, $.fn.airDatepicker.language[lang])
             } else {
-                this.loc = $.extend(true, {}, $.fn.datepicker.language.ru, lang)
+                this.loc = $.extend(true, {}, $.fn.airDatepicker.language.ru, lang)
             }
 
             if (this.opts.dateFormat) {
@@ -266,17 +266,17 @@ window.jQuery = require('jquery')
 
         _buildDatepickersContainer: function () {
             containerBuilt = true;
-            $body.append('<div class="datepickers-container" id="datepickers-container"></div>');
-            $datepickersContainer = $('#datepickers-container');
+            $body.append('<div class="airDatepickers-container" id="airDatepickers-container"></div>');
+            $airDatepickersContainer = $('#airDatepickers-container');
         },
 
         _buildBaseHtml: function () {
             var $appendTarget,
-                $inline = $('<div class="datepicker-inline">');
+                $inline = $('<div class="airDatepicker-inline">');
 
             if(this.el.nodeName == 'INPUT') {
                 if (!this.opts.inline) {
-                    $appendTarget = $datepickersContainer;
+                    $appendTarget = $airDatepickersContainer;
                 } else {
                     $appendTarget = $inline.insertAfter(this.$el)
                 }
@@ -284,9 +284,9 @@ window.jQuery = require('jquery')
                 $appendTarget = $inline.appendTo(this.$el)
             }
 
-            this.$datepicker = $(baseTemplate).appendTo($appendTarget);
-            this.$content = $('.datepicker--content', this.$datepicker);
-            this.$nav = $('.datepicker--nav', this.$datepicker);
+            this.$airDatepicker = $(baseTemplate).appendTo($appendTarget);
+            this.$content = $('.airDatepicker--content', this.$airDatepicker);
+            this.$nav = $('.airDatepicker--nav', this.$airDatepicker);
         },
 
         _triggerOnChange: function () {
@@ -298,7 +298,7 @@ window.jQuery = require('jquery')
             }
 
             var selectedDates = this.selectedDates,
-                parsedSelected = datepicker.getParsedDate(selectedDates[0]),
+                parsedSelected = airDatepicker.getParsedDate(selectedDates[0]),
                 formattedDates,
                 _this = this,
                 dates = new Date(
@@ -316,7 +316,7 @@ window.jQuery = require('jquery')
             // Create new dates array, to separate it from original selectedDates
             if (this.opts.multipleDates || this.opts.range) {
                 dates = selectedDates.map(function(date) {
-                    var parsedDate = datepicker.getParsedDate(date);
+                    var parsedDate = airDatepicker.getParsedDate(date);
                     return new Date(
                         parsedDate.year,
                         parsedDate.month,
@@ -374,9 +374,9 @@ window.jQuery = require('jquery')
             var result = string,
                 boundary = this._getWordBoundaryRegExp,
                 locale = this.loc,
-                leadingZero = datepicker.getLeadingZeroNum,
-                decade = datepicker.getDecade(date),
-                d = datepicker.getParsedDate(date),
+                leadingZero = airDatepicker.getLeadingZeroNum,
+                decade = airDatepicker.getDecade(date),
+                d = airDatepicker.getParsedDate(date),
                 fullHours = d.fullHours,
                 hours = d.hours,
                 ampm = string.match(boundary('aa')) || string.match(boundary('AA')),
@@ -520,7 +520,7 @@ window.jQuery = require('jquery')
                         _this.minRange = date;
                     }
                     // Swap dates if they were selected via dp.selectDate() and second date was smaller then first
-                    if (datepicker.bigger(_this.maxRange, _this.minRange)) {
+                    if (airDatepicker.bigger(_this.maxRange, _this.minRange)) {
                         _this.maxRange = _this.minRange;
                         _this.minRange = date;
                     }
@@ -558,7 +558,7 @@ window.jQuery = require('jquery')
             if (!(date instanceof Date)) return;
 
             return selected.some(function (curDate, i) {
-                if (datepicker.isSame(curDate, date)) {
+                if (airDatepicker.isSame(curDate, date)) {
                     selected.splice(i, 1);
 
                     if (!_this.selectedDates.length) {
@@ -605,7 +605,7 @@ window.jQuery = require('jquery')
         },
 
         /**
-         * Updates datepicker options
+         * Updates airDatepicker options
          * @param {String|Object} param - parameter's name to update. If object then it will extend current options
          * @param {String|Number|Object} [value] - new param value
          */
@@ -634,11 +634,11 @@ window.jQuery = require('jquery')
             }
 
             if (this.opts.classes) {
-                this.$datepicker.addClass(this.opts.classes)
+                this.$airDatepicker.addClass(this.opts.classes)
             }
 
             if (this.opts.onlyTimepicker) {
-                this.$datepicker.addClass('-only-timepicker-');
+                this.$airDatepicker.addClass('-only-timepicker-');
             }
 
             if (this.opts.timepicker) {
@@ -673,7 +673,7 @@ window.jQuery = require('jquery')
         _isSelected: function (checkDate, cellType) {
             var res = false;
             this.selectedDates.some(function (date) {
-                if (datepicker.isSame(date, checkDate, cellType)) {
+                if (airDatepicker.isSame(date, checkDate, cellType)) {
                     res = date;
                     return true;
                 }
@@ -713,9 +713,9 @@ window.jQuery = require('jquery')
          */
         _isInRange: function (date, type) {
             var time = date.getTime(),
-                d = datepicker.getParsedDate(date),
-                min = datepicker.getParsedDate(this.minDate),
-                max = datepicker.getParsedDate(this.maxDate),
+                d = airDatepicker.getParsedDate(date),
+                min = airDatepicker.getParsedDate(this.minDate),
+                max = airDatepicker.getParsedDate(this.maxDate),
                 dMinTime = new Date(d.year, d.month, min.date).getTime(),
                 dMaxTime = new Date(d.year, d.month, max.date).getTime(),
                 types = {
@@ -750,11 +750,11 @@ window.jQuery = require('jquery')
             pos = pos.split(' ');
             var main = pos[0],
                 sec = pos[1],
-                classes = 'datepicker -' + main + '-' + sec + '- -from-' + main + '-';
+                classes = 'airDatepicker -' + main + '-' + sec + '- -from-' + main + '-';
 
             if (this.visible) classes += ' active';
 
-            this.$datepicker
+            this.$airDatepicker
                 .removeAttr('class')
                 .addClass(classes);
         },
@@ -763,7 +763,7 @@ window.jQuery = require('jquery')
             position = position || this.opts.position;
 
             var dims = this._getDimensions(this.$el),
-                selfDims = this._getDimensions(this.$datepicker),
+                selfDims = this._getDimensions(this.$airDatepicker),
                 pos = position.split(' '),
                 top, left,
                 offset = this.opts.offset,
@@ -806,7 +806,7 @@ window.jQuery = require('jquery')
                     }
             }
 
-            this.$datepicker
+            this.$airDatepicker
                 .css({
                     left: left,
                     top: top
@@ -817,7 +817,7 @@ window.jQuery = require('jquery')
             var onShow = this.opts.onShow;
 
             this.setPosition(this.opts.position);
-            this.$datepicker.addClass('active');
+            this.$airDatepicker.addClass('active');
             this.visible = true;
 
             if (onShow) {
@@ -828,7 +828,7 @@ window.jQuery = require('jquery')
         hide: function () {
             var onHide = this.opts.onHide;
 
-            this.$datepicker
+            this.$airDatepicker
                 .removeClass('active')
                 .css({
                     left: '-100000px'
@@ -855,9 +855,9 @@ window.jQuery = require('jquery')
         },
 
         _bindVisionEvents: function (event) {
-            this.$datepicker.off('transitionend.dp');
+            this.$airDatepicker.off('transitionend.dp');
             event(this, false);
-            this.$datepicker.one('transitionend.dp', event.bind(this, this, true))
+            this.$airDatepicker.one('transitionend.dp', event.bind(this, this, true))
         },
 
         _changeView: function (date, dir) {
@@ -875,7 +875,7 @@ window.jQuery = require('jquery')
         },
 
         _handleHotKey: function (key) {
-            var date = datepicker.getParsedDate(this._getFocusedDate()),
+            var date = airDatepicker.getParsedDate(this._getFocusedDate()),
                 focusedParsed,
                 o = this.opts,
                 newDate,
@@ -923,7 +923,7 @@ window.jQuery = require('jquery')
                     break;
             }
 
-            totalDaysInNextMonth = datepicker.getDaysCount(new Date(y,m));
+            totalDaysInNextMonth = airDatepicker.getDaysCount(new Date(y,m));
             newDate = new Date(y,m,d);
 
             // If next month has less days than current, set date to total days in that month
@@ -938,7 +938,7 @@ window.jQuery = require('jquery')
 
             this.focused = newDate;
 
-            focusedParsed = datepicker.getParsedDate(newDate);
+            focusedParsed = airDatepicker.getParsedDate(newDate);
             if (monthChanged && o.onChangeMonth) {
                 o.onChangeMonth(focusedParsed.month, focusedParsed.year)
             }
@@ -992,7 +992,7 @@ window.jQuery = require('jquery')
         _focusNextCell: function (keyCode, type) {
             type = type || this.cellType;
 
-            var date = datepicker.getParsedDate(this._getFocusedDate()),
+            var date = airDatepicker.getParsedDate(this._getFocusedDate()),
                 y = date.year,
                 m = date.month,
                 d = date.date;
@@ -1059,8 +1059,8 @@ window.jQuery = require('jquery')
         _getCell: function (date, type) {
             type = type || this.cellType;
 
-            var d = datepicker.getParsedDate(date),
-                selector = '.datepicker--cell[data-year="' + d.year + '"]',
+            var d = airDatepicker.getParsedDate(date),
+                selector = '.airDatepicker--cell[data-year="' + d.year + '"]',
                 $cell;
 
             switch (type) {
@@ -1080,7 +1080,7 @@ window.jQuery = require('jquery')
             var _this = this;
             _this.$el
                 .off('.adp')
-                .data('datepicker', '');
+                .data('airDatepicker', '');
 
             _this.selectedDates = [];
             _this.focused = '';
@@ -1090,9 +1090,9 @@ window.jQuery = require('jquery')
             _this.maxRange = '';
 
             if (_this.opts.inline || !_this.elIsInput) {
-                _this.$datepicker.closest('.datepicker-inline').remove();
+                _this.$airDatepicker.closest('.airDatepicker-inline').remove();
             } else {
-                _this.$datepicker.remove();
+                _this.$airDatepicker.remove();
             }
         },
 
@@ -1218,7 +1218,7 @@ window.jQuery = require('jquery')
         },
 
         _onMouseEnterCell: function (e) {
-            var $cell = $(e.target).closest('.datepicker--cell'),
+            var $cell = $(e.target).closest('.airDatepicker--cell'),
                 date = this._getDateFromCell($cell);
 
             // Prevent from unnecessary rendering and setting new currentDate
@@ -1236,7 +1236,7 @@ window.jQuery = require('jquery')
             if (this.opts.range && this.selectedDates.length == 1) {
                 this.minRange = this.selectedDates[0];
                 this.maxRange = '';
-                if (datepicker.less(this.minRange, this.focused)) {
+                if (airDatepicker.less(this.minRange, this.focused)) {
                     this.maxRange = this.minRange;
                     this.minRange = '';
                 }
@@ -1245,7 +1245,7 @@ window.jQuery = require('jquery')
         },
 
         _onMouseLeaveCell: function (e) {
-            var $cell = $(e.target).closest('.datepicker--cell');
+            var $cell = $(e.target).closest('.airDatepicker--cell');
 
             $cell.removeClass('-focus-');
 
@@ -1297,7 +1297,7 @@ window.jQuery = require('jquery')
             if (this.opts.range && this.selectedDates.length == 1) {
                 this.minRange = this.selectedDates[0];
                 this.maxRange = '';
-                if (datepicker.less(this.minRange, this._focused)) {
+                if (airDatepicker.less(this.minRange, this._focused)) {
                     this.maxRange = this.minRange;
                     this.minRange = '';
                 }
@@ -1311,7 +1311,7 @@ window.jQuery = require('jquery')
         },
 
         get parsedDate() {
-            return datepicker.getParsedDate(this.date);
+            return airDatepicker.getParsedDate(this.date);
         },
 
         set date (val) {
@@ -1345,7 +1345,7 @@ window.jQuery = require('jquery')
 
             if (this.inited) {
                 if (!this.views[val]) {
-                    this.views[val] = new  $.fn.datepicker.Body(this, val, this.opts)
+                    this.views[val] = new  $.fn.airDatepicker.Body(this, val, this.opts)
                 } else {
                     this.views[val]._render();
                 }
@@ -1372,28 +1372,28 @@ window.jQuery = require('jquery')
         },
 
         get minTime() {
-            var min = datepicker.getParsedDate(this.minDate);
+            var min = airDatepicker.getParsedDate(this.minDate);
             return new Date(min.year, min.month, min.date).getTime()
         },
 
         get maxTime() {
-            var max = datepicker.getParsedDate(this.maxDate);
+            var max = airDatepicker.getParsedDate(this.maxDate);
             return new Date(max.year, max.month, max.date).getTime()
         },
 
         get curDecade() {
-            return datepicker.getDecade(this.date)
+            return airDatepicker.getDecade(this.date)
         }
     };
 
     //  Utils
     // -------------------------------------------------
 
-    datepicker.getDaysCount = function (date) {
+    airDatepicker.getDaysCount = function (date) {
         return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
     };
 
-    datepicker.getParsedDate = function (date) {
+    airDatepicker.getParsedDate = function (date) {
         return {
             year: date.getFullYear(),
             month: date.getMonth(),
@@ -1408,13 +1408,13 @@ window.jQuery = require('jquery')
         }
     };
 
-    datepicker.getDecade = function (date) {
+    airDatepicker.getDecade = function (date) {
         var firstYear = Math.floor(date.getFullYear() / 10) * 10;
 
         return [firstYear, firstYear + 9];
     };
 
-    datepicker.template = function (str, data) {
+    airDatepicker.template = function (str, data) {
         return str.replace(/#\{([\w]+)\}/g, function (source, match) {
             if (data[match] || data[match] === 0) {
                 return data[match]
@@ -1422,10 +1422,10 @@ window.jQuery = require('jquery')
         });
     };
 
-    datepicker.isSame = function (date1, date2, type) {
+    airDatepicker.isSame = function (date1, date2, type) {
         if (!date1 || !date2) return false;
-        var d1 = datepicker.getParsedDate(date1),
-            d2 = datepicker.getParsedDate(date2),
+        var d1 = airDatepicker.getParsedDate(date1),
+            d2 = airDatepicker.getParsedDate(date2),
             _type = type ? type : 'day',
 
             conditions = {
@@ -1437,17 +1437,17 @@ window.jQuery = require('jquery')
         return conditions[_type];
     };
 
-    datepicker.less = function (dateCompareTo, date, type) {
+    airDatepicker.less = function (dateCompareTo, date, type) {
         if (!dateCompareTo || !date) return false;
         return date.getTime() < dateCompareTo.getTime();
     };
 
-    datepicker.bigger = function (dateCompareTo, date, type) {
+    airDatepicker.bigger = function (dateCompareTo, date, type) {
         if (!dateCompareTo || !date) return false;
         return date.getTime() > dateCompareTo.getTime();
     };
 
-    datepicker.getLeadingZeroNum = function (num) {
+    airDatepicker.getLeadingZeroNum = function (num) {
         return parseInt(num) < 10 ? '0' + num : num;
     };
 
@@ -1455,13 +1455,13 @@ window.jQuery = require('jquery')
      * Returns copy of date with hours and minutes equals to 0
      * @param date {Date}
      */
-    datepicker.resetTime = function (date) {
+    airDatepicker.resetTime = function (date) {
         if (typeof date != 'object') return;
-        date = datepicker.getParsedDate(date);
+        date = airDatepicker.getParsedDate(date);
         return new Date(date.year, date.month, date.date)
     };
 
-    $.fn.datepicker = function ( options ) {
+    $.fn.airDatepicker = function ( options ) {
         return this.each(function () {
             if (!$.data(this, pluginName)) {
                 $.data(this,  pluginName,
@@ -1475,9 +1475,9 @@ window.jQuery = require('jquery')
         });
     };
 
-    $.fn.datepicker.Constructor = Datepicker;
+    $.fn.airDatepicker.Constructor = Datepicker;
 
-    $.fn.datepicker.language = {
+    $.fn.airDatepicker.language = {
         ru: {
             days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
             daysShort: ['Вос','Пон','Вто','Сре','Чет','Пят','Суб'],
@@ -1493,7 +1493,7 @@ window.jQuery = require('jquery')
     };
 
     $(function () {
-        $(autoInitSelector).datepicker();
+        $(autoInitSelector).airDatepicker();
     })
 
 })();
@@ -1501,23 +1501,23 @@ window.jQuery = require('jquery')
 ;(function () {
     var templates = {
         days:'' +
-        '<div class="datepicker--days datepicker--body">' +
-        '<div class="datepicker--days-names"></div>' +
-        '<div class="datepicker--cells datepicker--cells-days"></div>' +
+        '<div class="airDatepicker--days airDatepicker--body">' +
+        '<div class="airDatepicker--days-names"></div>' +
+        '<div class="airDatepicker--cells airDatepicker--cells-days"></div>' +
         '</div>',
         months: '' +
-        '<div class="datepicker--months datepicker--body">' +
-        '<div class="datepicker--cells datepicker--cells-months"></div>' +
+        '<div class="airDatepicker--months airDatepicker--body">' +
+        '<div class="airDatepicker--cells airDatepicker--cells-months"></div>' +
         '</div>',
         years: '' +
-        '<div class="datepicker--years datepicker--body">' +
-        '<div class="datepicker--cells datepicker--cells-years"></div>' +
+        '<div class="airDatepicker--years airDatepicker--body">' +
+        '<div class="airDatepicker--cells airDatepicker--cells-years"></div>' +
         '</div>'
         },
-        datepicker = $.fn.datepicker,
-        dp = datepicker.Constructor;
+        airDatepicker = $.fn.airDatepicker,
+        dp = airDatepicker.Constructor;
 
-    datepicker.Body = function (d, type, opts) {
+    airDatepicker.Body = function (d, type, opts) {
         this.d = d;
         this.type = type;
         this.opts = opts;
@@ -1527,7 +1527,7 @@ window.jQuery = require('jquery')
         this.init();
     };
 
-    datepicker.Body.prototype = {
+    airDatepicker.Body.prototype = {
         init: function () {
             this._buildBaseHtml();
             this._render();
@@ -1536,13 +1536,13 @@ window.jQuery = require('jquery')
         },
 
         _bindEvents: function () {
-            this.$el.on('click', '.datepicker--cell', $.proxy(this._onClickCell, this));
+            this.$el.on('click', '.airDatepicker--cell', $.proxy(this._onClickCell, this));
         },
 
         _buildBaseHtml: function () {
             this.$el = $(templates[this.type]).appendTo(this.d.$content);
-            this.$names = $('.datepicker--days-names', this.$el);
-            this.$cells = $('.datepicker--cells', this.$el);
+            this.$names = $('.airDatepicker--days-names', this.$el);
+            this.$cells = $('.airDatepicker--cells', this.$el);
         },
 
         _getDayNamesHtml: function (firstDay, curDay, html, i) {
@@ -1553,13 +1553,13 @@ window.jQuery = require('jquery')
             if (i > 7) return html;
             if (curDay == 7) return this._getDayNamesHtml(firstDay, 0, html, ++i);
 
-            html += '<div class="datepicker--day-name' + (this.d.isWeekend(curDay) ? " -weekend-" : "") + '">' + this.d.loc.daysMin[curDay] + '</div>';
+            html += '<div class="airDatepicker--day-name' + (this.d.isWeekend(curDay) ? " -weekend-" : "") + '">' + this.d.loc.daysMin[curDay] + '</div>';
 
             return this._getDayNamesHtml(firstDay, ++curDay, html, ++i);
         },
 
         _getCellContents: function (date, type) {
-            var classes = "datepicker--cell datepicker--cell-" + type,
+            var classes = "airDatepicker--cell airDatepicker--cell-" + type,
                 currentDate = new Date(),
                 parent = this.d,
                 minRange = dp.resetTime(parent.minRange),
@@ -1750,7 +1750,7 @@ window.jQuery = require('jquery')
         },
 
         _update: function () {
-            var $cells = $('.datepicker--cell', this.$cells),
+            var $cells = $('.airDatepicker--cell', this.$cells),
                 _this = this,
                 classes,
                 $cell,
@@ -1801,7 +1801,7 @@ window.jQuery = require('jquery')
         },
 
         _onClickCell: function (e) {
-            var $el = $(e.target).closest('.datepicker--cell');
+            var $el = $(e.target).closest('.airDatepicker--cell');
 
             if ($el.hasClass('-disabled-')) return;
 
@@ -1812,15 +1812,15 @@ window.jQuery = require('jquery')
 
 ;(function () {
     var template = '' +
-        '<div class="datepicker--nav-action" data-action="prev">#{prevHtml}</div>' +
-        '<div class="datepicker--nav-title">#{title}</div>' +
-        '<div class="datepicker--nav-action" data-action="next">#{nextHtml}</div>',
-        buttonsContainerTemplate = '<div class="datepicker--buttons"></div>',
-        button = '<span class="datepicker--button" data-action="#{action}">#{label}</span>',
-        datepicker = $.fn.datepicker,
-        dp = datepicker.Constructor;
+        '<div class="airDatepicker--nav-action" data-action="prev">#{prevHtml}</div>' +
+        '<div class="airDatepicker--nav-title">#{title}</div>' +
+        '<div class="airDatepicker--nav-action" data-action="next">#{nextHtml}</div>',
+        buttonsContainerTemplate = '<div class="airDatepicker--buttons"></div>',
+        button = '<span class="airDatepicker--button" data-action="#{action}">#{label}</span>',
+        airDatepicker = $.fn.airDatepicker,
+        dp = airDatepicker.Constructor;
 
-    datepicker.Navigation = function (d, opts) {
+    airDatepicker.Navigation = function (d, opts) {
         this.d = d;
         this.opts = opts;
 
@@ -1829,16 +1829,16 @@ window.jQuery = require('jquery')
         this.init();
     };
 
-    datepicker.Navigation.prototype = {
+    airDatepicker.Navigation.prototype = {
         init: function () {
             this._buildBaseHtml();
             this._bindEvents();
         },
 
         _bindEvents: function () {
-            this.d.$nav.on('click', '.datepicker--nav-action', $.proxy(this._onClickNavButton, this));
-            this.d.$nav.on('click', '.datepicker--nav-title', $.proxy(this._onClickNavTitle, this));
-            this.d.$datepicker.on('click', '.datepicker--button', $.proxy(this._onClickNavButton, this));
+            this.d.$nav.on('click', '.airDatepicker--nav-action', $.proxy(this._onClickNavButton, this));
+            this.d.$nav.on('click', '.airDatepicker--nav-title', $.proxy(this._onClickNavTitle, this));
+            this.d.$airDatepicker.on('click', '.airDatepicker--button', $.proxy(this._onClickNavButton, this));
         },
 
         _buildBaseHtml: function () {
@@ -1862,7 +1862,7 @@ window.jQuery = require('jquery')
                 html = dp.template(template, $.extend({title: title}, this.opts));
             this.d.$nav.html(html);
             if (this.d.view == 'years') {
-                $('.datepicker--nav-title', this.d.$nav).addClass('-disabled-');
+                $('.airDatepicker--nav-title', this.d.$nav).addClass('-disabled-');
             }
             this.setNavStatus();
         },
@@ -1887,8 +1887,8 @@ window.jQuery = require('jquery')
         },
 
         _addButtonsContainer: function () {
-            this.d.$datepicker.append(buttonsContainerTemplate);
-            this.$buttonsContainer = $('.datepicker--buttons', this.d.$datepicker);
+            this.d.$airDatepicker.append(buttonsContainerTemplate);
+            this.$buttonsContainer = $('.airDatepicker--buttons', this.d.$airDatepicker);
         },
 
         setNavStatus: function () {
@@ -1957,32 +1957,32 @@ window.jQuery = require('jquery')
 })();
 
 ;(function () {
-    var template = '<div class="datepicker--time">' +
-        '<div class="datepicker--time-current">' +
-        '   <span class="datepicker--time-current-hours">#{hourVisible}</span>' +
-        '   <span class="datepicker--time-current-colon">:</span>' +
-        '   <span class="datepicker--time-current-minutes">#{minValue}</span>' +
+    var template = '<div class="airDatepicker--time">' +
+        '<div class="airDatepicker--time-current">' +
+        '   <span class="airDatepicker--time-current-hours">#{hourVisible}</span>' +
+        '   <span class="airDatepicker--time-current-colon">:</span>' +
+        '   <span class="airDatepicker--time-current-minutes">#{minValue}</span>' +
         '</div>' +
-        '<div class="datepicker--time-sliders">' +
-        '   <div class="datepicker--time-row">' +
+        '<div class="airDatepicker--time-sliders">' +
+        '   <div class="airDatepicker--time-row">' +
         '      <input type="range" name="hours" value="#{hourValue}" min="#{hourMin}" max="#{hourMax}" step="#{hourStep}"/>' +
         '   </div>' +
-        '   <div class="datepicker--time-row">' +
+        '   <div class="airDatepicker--time-row">' +
         '      <input type="range" name="minutes" value="#{minValue}" min="#{minMin}" max="#{minMax}" step="#{minStep}"/>' +
         '   </div>' +
         '</div>' +
         '</div>',
-        datepicker = $.fn.datepicker,
-        dp = datepicker.Constructor;
+        airDatepicker = $.fn.airDatepicker,
+        dp = airDatepicker.Constructor;
 
-    datepicker.Timepicker = function (inst, opts) {
+    airDatepicker.Timepicker = function (inst, opts) {
         this.d = inst;
         this.opts = opts;
 
         this.init();
     };
 
-    datepicker.Timepicker.prototype = {
+    airDatepicker.Timepicker.prototype = {
         init: function () {
             var input = 'input';
             this._setTime(this.d.date);
@@ -2082,16 +2082,16 @@ window.jQuery = require('jquery')
                 },
                 _template = dp.template(template, data);
 
-            this.$timepicker = $(_template).appendTo(this.d.$datepicker);
+            this.$timepicker = $(_template).appendTo(this.d.$airDatepicker);
             this.$ranges = $('[type="range"]', this.$timepicker);
             this.$hours = $('[name="hours"]', this.$timepicker);
             this.$minutes = $('[name="minutes"]', this.$timepicker);
-            this.$hoursText = $('.datepicker--time-current-hours', this.$timepicker);
-            this.$minutesText = $('.datepicker--time-current-minutes', this.$timepicker);
+            this.$hoursText = $('.airDatepicker--time-current-hours', this.$timepicker);
+            this.$minutesText = $('.airDatepicker--time-current-minutes', this.$timepicker);
 
             if (this.d.ampm) {
-                this.$ampm = $('<span class="datepicker--time-current-ampm">')
-                    .appendTo($('.datepicker--time-current', this.$timepicker))
+                this.$ampm = $('<span class="airDatepicker--time-current-ampm">')
+                    .appendTo($('.airDatepicker--time-current', this.$timepicker))
                     .html(this.dayPeriod);
 
                 this.$timepicker.addClass('-am-pm-');
@@ -2147,7 +2147,7 @@ window.jQuery = require('jquery')
         },
 
         /**
-         * Calculates valid hour value to display in text input and datepicker's body.
+         * Calculates valid hour value to display in text input and airDatepicker's body.
          * @param date {Date|Number} - date or hours
          * @param [ampm] {Boolean} - 12 hours mode
          * @returns {{hours: *, dayPeriod: string}}
@@ -2225,13 +2225,13 @@ window.jQuery = require('jquery')
 
         _onMouseEnterRange: function (e) {
             var name = $(e.target).attr('name');
-            $('.datepicker--time-current-' + name, this.$timepicker).addClass('-focus-');
+            $('.airDatepicker--time-current-' + name, this.$timepicker).addClass('-focus-');
         },
 
         _onMouseOutRange: function (e) {
             var name = $(e.target).attr('name');
             if (this.d.inFocus) return; // Prevent removing focus when mouse out of range slider
-            $('.datepicker--time-current-' + name, this.$timepicker).removeClass('-focus-');
+            $('.airDatepicker--time-current-' + name, this.$timepicker).removeClass('-focus-');
         },
 
         _onMouseUpRange: function (e) {
