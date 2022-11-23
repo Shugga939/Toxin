@@ -3,7 +3,7 @@ window.jQuery = require('jquery')
 import 'Scripts/plugins/jquery-ui.min';
 
 
-export default class rangeSlider {
+export default class RangeSlider {
   constructor(wrapper, startValues, minMaxPrice) {
     this.wrapper = $(wrapper)
     this.slider = this.wrapper.children('.range-slider__slider')

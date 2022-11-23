@@ -1,14 +1,15 @@
 import completions from 'Scripts/helpers/completions';
 
 export default class DropdownList {
-  constructor(container, dataList, summaryDeclination) {
+  constructor(container, dataList, withButtons, summaryDeclination) {
     this.container = container;
     this.dataList = dataList;
-    this.summaryDeclination = summaryDeclination || false
+    this.withButtons = withButtons
+    this.summaryDeclination = false || summaryDeclination
     this.isOpen = false;
     this.items = [];
     this._render();
-    this._renderButtons();
+    withButtons? this._renderButtons() : false;
     this._addListeners();
     this._updateInput();
   }
@@ -120,16 +121,17 @@ export default class DropdownList {
       closeList();
     }
 
-    this.clearButton.addEventListener('click', clear);
-    this.confirmButton.addEventListener('click', confirm);
+    if (this.withButtons) {
+      this.clearButton.addEventListener('click', clear);
+      this.confirmButton.addEventListener('click', confirm);
+      this.confirmButton.addEventListener('click', (e)=> {
+        if (e.keyCode==13) confirm(e)
+      });
+    }
     this.inputContainer.addEventListener('click', toggleList);
     this.inputContainer.addEventListener('keypress', (e)=> {
       if (e.keyCode==13) toggleList(e)
     });
-    this.confirmButton.addEventListener('click', (e)=> {
-      if (e.keyCode==13) confirm(e)
-    });
-
   }
 }
 

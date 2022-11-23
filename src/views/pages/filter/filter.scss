@@ -3,6 +3,10 @@
 @use '../../components/dropdownDate/dropdownDate';
 @use '../../components/dropdownList/dropdownList';
 @use '../../components/rangeSlider/rangeSlider';
+@use '../../components/checkbox/checkbox';
+@use '../../components/spoiler/spoiler';
+
+
 
 
 .filter {
@@ -24,7 +28,8 @@
   }
 
   &__filters-title {
-    @include typography.fontH3()
+    @include typography.fontH3();
+    cursor: default;
   }
 
   &__dates {
@@ -56,5 +61,29 @@
     display: inline-block;
     margin-top: 8px;
     font-size: 12px;
+  }
+
+  &__rules {
+    margin-top: 25px;
+
+    h3 {
+      margin-bottom: 17px;
+    }
+  }
+
+  &__availability {
+    margin-top: 32px;
+
+    h3 {
+      margin-bottom: 17px;
+    }
+  }
+
+  &__comfort {
+    margin-top: 30px;
+  }
+
+  &__additionally {
+    margin-top: 30px;
   }
 }

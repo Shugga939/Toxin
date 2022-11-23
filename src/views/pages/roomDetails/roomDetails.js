@@ -1,6 +1,6 @@
 import PieChart from 'Views/components/pieChart/pieChart';
 import LikeButton from 'Views/components/likeButton/likeButton';
-import { doubleDropdownDate } from '../../components/dropdownDate/dropdownDate.js';
+import { DoubleDropdownDate } from '../../components/dropdownDate/dropdownDate.js';
 import DropdownList from 'Views/components/dropdownList/dropdownList';
 
 const guestsList = [
@@ -28,7 +28,7 @@ const secondDate = new Date(firstDate.getFullYear(), firstDate.getMonth(),firstD
 // init datepicker
 const firstDateinput = document.querySelector('input[name="date-arrival"]');
 const secondDateinput = document.querySelector('input[name="date-leaving"]');
-const datepicker = new doubleDropdownDate(firstDateinput, secondDateinput, firstDate, secondDate)
+const datepicker = new DoubleDropdownDate(firstDateinput, secondDateinput, firstDate, secondDate)
 
 // init pieChart
 const pieChartRoot = document.querySelector('.pie-chart');

@@ -2,6 +2,10 @@ extends Views/layouts/default.pug
 include Views/components/dropdownDate/dropdownDate
 include Views/components/dropdownList/dropdownList
 include Views/components/rangeSlider/rangeSlider
+include Views/components/checkbox/checkbox
+include Views/components/spoiler/spoiler
+
+
 
 append meta
   meta(name="description", content="Поиск номеров")
@@ -39,3 +43,51 @@ block content
           })
           span.filter__price-reference
            | Стоимость за сутки пребывания в номере
+        .filter__rules
+          h3.filter__filters-title 
+            | Правила дома 
+          +checkbox({
+            items: [
+              {
+                text: "Можно курить",
+                checked: false
+              },
+              {
+                text: "Можно с питомцами",
+                checked: true
+              },
+              {
+                text: "Можно пригласить гостей (до 10 человек)",
+                checked: true
+              }
+          ]})
+        .filter__availability
+          h3.filter__filters-title 
+            | Доступность
+          +checkbox({
+            type: "detailed",
+            items: [
+              {
+                title: "Широкий коридор",
+                description: "Ширина коридоров в номере не менее 91 см.",
+                checked: false
+              },
+              {
+                title: "Помощник для инвалидов",
+                description: "На 1 этаже вас встретит специалист и проводит до номера.",
+                checked: false
+              }
+          ]})
+        .filter__comfort
+          +dropdownList({
+            title: 'Удобства номера',
+            placeholder: 'Выберите удобства',
+            classContainer: 'comfort-list'
+          })
+        .filter__additionally
+          +spoiler()
+
+          //- h3.filter__filters-title 
+          //-   | Дополнительные удобства
+          //- span.filter__status
+          //-   include Images/icons/expand-more.svg

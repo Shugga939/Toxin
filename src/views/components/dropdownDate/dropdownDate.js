@@ -3,7 +3,7 @@ import 'Scripts/plugins/datepicker';
 window.$ = require('jquery')
 window.jQuery = require('jquery')
 
-export class doubleDropdownDate {
+export class DoubleDropdownDate {
   constructor(firstInput, secondInput, firstDate, secondDate) {
     this.firstInput = $(firstInput)
     this.secondInput = $(secondInput)
@@ -123,7 +123,7 @@ export class doubleDropdownDate {
   }
 }
 
-export class singleDropdownDate {
+export class SingleDropdownDate {
   constructor(input, firstDate, secondDate) {
     this.input = $(input)
     this.firstDate = firstDate || null

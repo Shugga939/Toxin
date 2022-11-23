@@ -1,0 +1,23 @@
+mixin checkbox({ items, type })
+  if !type
+    ul.check-list
+      each item in items
+        li.check-list__item
+          label.checkbox
+            input(type="checkbox" checked = item.checked)
+            span.checkbox__state(tabindex="0")
+            .checkbox__text
+              span #{item.text}
+
+  if type == 'detailed'
+    ul.check-list
+      each item in items
+        li.check-list__item
+          label.checkbox
+            input(type="checkbox" checked = item.checked)
+            span.checkbox__state(tabindex="0")
+            .checkbox__text
+              span.checkbox__title
+                | #{item.title}
+              p.checkbox__description
+                | #{item.description}
