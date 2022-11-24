@@ -13,6 +13,8 @@ export default class Spoiler {
 
     function closeSpoiler() {
       that.content.style.maxHeight = '0px';
+      that.content.style.overflow = 'hidden';
+      that.content.style.opacity = '0.7';
       that.status.classList.remove('dropdown-svg--opened');
       that.status.classList.add('dropdown-svg--closed');
       that.isOpen = false;
@@ -20,6 +22,8 @@ export default class Spoiler {
 
     function openSpoiler() {
       that.content.style.maxHeight = '500px';
+      that.content.style.overflow = 'visible';
+      that.content.style.opacity = '1';
       that.status.classList.remove('dropdown-svg--closed');
       that.status.classList.add('dropdown-svg--opened');
       that.isOpen = true;

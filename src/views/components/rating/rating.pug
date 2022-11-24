@@ -1,0 +1,10 @@
+mixin rating( rating )
+  .rating
+    each val in [1,2,3,4,5]
+      if val > rating
+        .rating__star
+          include Images/icons/star_border.svg
+      else 
+        .rating__star
+          include Images/icons/star.svg
+      

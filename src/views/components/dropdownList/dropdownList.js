@@ -74,7 +74,7 @@ export default class DropdownList {
     function closeList() {
       that.list.style.borderColor = 'rgba(31, 32, 65, 0.25)'
       that.list_wrapper.style.maxHeight = '0px';
-      that.list.style.display = 'none';
+      that.list_wrapper.style.opacity = 0.7,
       that.status.classList.remove('dropdown-svg--opened');
       that.status.classList.add('dropdown-svg--closed');
       that.input.classList.remove('dropdown-list__input--active');
@@ -84,7 +84,7 @@ export default class DropdownList {
     function openList() {
       that.list.style.borderColor = 'rgba(31, 32, 65, 0.5)'
       that.list_wrapper.style.maxHeight = '500px';
-      that.list.style.display = 'block';
+      that.list_wrapper.style.opacity = 1,
       that.status.classList.remove('dropdown-svg--closed');
       that.status.classList.add('dropdown-svg--opened');
       that.input.classList.add('dropdown-list__input--active');

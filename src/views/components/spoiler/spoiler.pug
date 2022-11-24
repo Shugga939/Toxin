@@ -1,4 +1,6 @@
-mixin spoiler()
+include Views/components/checkbox/checkbox
+
+mixin spoiler({type, typeContent, content})
   .spoiler
     .spoiler__head
       h3.spoiler__title 
@@ -6,18 +8,10 @@ mixin spoiler()
       span.spoiler__status
         include Images/icons/expand-more.svg
     .spoiler__content
-      div  asdasd
-      span  asdasd 
-      span  asdasd
-      span  asdasd 
-      span  asdasd
-      span  asdasd 
-      span  asdasd
-      span  asdasd 
-      span  asdasd
-      span  asdasd 
-      span  asdasd
-      span  asdasd 
-      span  asdasd
+      if type == 'checkboxes'
+        +checkbox({
+          type: typeContent,
+          items: content
+        })
 
     

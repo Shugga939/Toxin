@@ -4,7 +4,7 @@ include Views/components/dropdownList/dropdownList
 include Views/components/rangeSlider/rangeSlider
 include Views/components/checkbox/checkbox
 include Views/components/spoiler/spoiler
-
+include Views/components/roomCard/roomCard
 
 
 append meta
@@ -85,9 +85,168 @@ block content
             classContainer: 'comfort-list'
           })
         .filter__additionally
-          +spoiler()
-
-          //- h3.filter__filters-title 
-          //-   | Дополнительные удобства
-          //- span.filter__status
-          //-   include Images/icons/expand-more.svg
+          +spoiler({
+            type: 'checkboxes',
+            typeContent : '',
+            content : [
+              {
+                text: "Завтрак",
+                checked: false
+              },
+              {
+                text: "Письменный стол",
+                checked: false
+              },
+              {
+                text: "Стул для кормления",
+                checked: false
+              },
+              {
+                text: "Кроватка",
+                checked: false
+              },
+              {
+                text: "Телевизор",
+                checked: false
+              },
+              {
+                text: "Шампунь",
+                checked: false
+              },
+              {
+                text: "Телевизор",
+                checked: false
+              },
+              {
+                text: "Шампунь",
+                checked: false
+              }
+            ] 
+          })
+      section.filter__result
+        h1.filter__result-title
+          | Номера, которые мы для вас подобрали
+        .filter__rooms
+          +roomCard([
+            "1.png",
+            "2.png",
+            "3.png",
+            "4.png"
+            ],
+            {
+              isLuxe: true,
+              number: 888,
+              price: "9 990",
+              rating: 5,
+              reviews: 145
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: false,
+              number: 840,
+              price: "9 990",
+              rating: 4,
+              reviews: 65
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: true,
+              number: 980,
+              price: "8 500",
+              rating: 3,
+              reviews: 35
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: false,
+              number: 856,
+              price: "7 300",
+              rating: 5,
+              reviews: 19
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: false,
+              number: 740,
+              price: "6 000",
+              rating: 4,
+              reviews: 44
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: false,
+              number: 982,
+              price: "5 800",
+              rating: 3,
+              reviews: 56
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: false,
+              number: 678,
+              price: "5 500",
+              rating: 5,
+              reviews: 45
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: false,
+              number: 450,
+              price: "5 300",
+              rating: 4,
+              reviews: 39
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: false,
+              number: 350,
+              price: "5 000",
+              rating: 3,
+              reviews: 77
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: false,
+              number: 666,
+              price: "5 000",
+              rating: 5,
+              reviews: 25
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: false,
+              number: 444,
+              price: "5 000",
+              rating: 3,
+              reviews: 15
+          })
+          +roomCard([
+            "1.png",
+            ],
+            {
+              isLuxe: false,
+              number: 352,
+              price: "5 000",
+              rating: 3,
+              reviews: 55
+          })

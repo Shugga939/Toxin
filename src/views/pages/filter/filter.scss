@@ -5,8 +5,8 @@
 @use '../../components/rangeSlider/rangeSlider';
 @use '../../components/checkbox/checkbox';
 @use '../../components/spoiler/spoiler';
-
-
+@use '../../components/roomCard/roomCard';
+@use '../../components/rating/rating';
 
 
 .filter {
@@ -22,9 +22,10 @@
   }
 
   &__filters-form {
-    width: 266px;
     display: flex;
     flex-direction: column;
+    min-width: 266px;
+    margin-right: 59px;
   }
 
   &__filters-title {
@@ -85,5 +86,21 @@
 
   &__additionally {
     margin-top: 30px;
+  }
+
+  &__result {
+    width: 100%;
+    height: max-content;
+  }
+  
+  &__result-title {
+    @include typography.fontH1()
+  }
+  
+  &__rooms {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    gap: 21px 12px;
   }
 }

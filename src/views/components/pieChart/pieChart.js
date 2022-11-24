@@ -2,17 +2,17 @@ import 'Scripts/plugins/chart.min';
 window.$ = require('jquery')
 window.jQuery = require('jquery')
 
-class PieChart {
-  constructor(parent) {
-    this.mainEl = parent;
+export default class PieChart {
+  constructor(container) {
+    this.container = container;
     this._init();
   }
 
   _injectReviews() {
-    const { mainEl } = this;
+    const { container } = this;
 
-    const { voices } = mainEl.dataset;
-    const voicesEl = mainEl.querySelector('.pie-chart__voices');
+    const { voices } = container.dataset;
+    const voicesEl = container.querySelector('.pie-chart__voices');
     const voicesNumEl = voicesEl.querySelector('.pie-chart__num');
     const voicesText = voicesEl.querySelector('.pie-chart__text');
     voicesNumEl.innerHTML = voices;
@@ -20,7 +20,7 @@ class PieChart {
   }
 
   _createCircleDiagram() {
-    const el = this.mainEl.querySelector('#pieChart');
+    const el = this.container.querySelector('#pieChart');
     if (!el) return;
     const gradientOrange = el.getContext('2d').createLinearGradient(0, 0, 0, 100);
     const gradientPurple = el.getContext('2d').createLinearGradient(0, 0, 0, 100);
@@ -69,5 +69,3 @@ class PieChart {
     this._createCircleDiagram();
   }
 }
-
-export default PieChart;

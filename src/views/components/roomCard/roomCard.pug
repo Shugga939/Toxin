@@ -1,0 +1,23 @@
+include Views/components/rating/rating
+
+mixin roomCard(paths, info)
+  .room-card
+    .room-card__slick-slider
+      each path, index in paths
+        img(src=require(`Images/photos/rooms/room_${info.number}/${path}`) alt=`Фото ${index+1}`)
+    a(href='#').room-card__content
+      .room-card__info-row
+        .room-card__number
+          span №
+          span #{info.number}
+          if info.isLuxe
+            span.room-card__luxe Люкс
+        .room-card__price
+          span #{info.price +'₽ '}
+          span в сутки
+      .room-card__info-row
+        .room-card__raiting
+          +rating(info.rating)
+        .room-card__reviews
+          span #{info.reviews}
+          span  Отзывов

@@ -24,10 +24,14 @@ append script
 block content
   main.room-details
     .room-details__photo-container
-      +roomsPhoto([
-        'roomDetails_1.png',
-        'roomDetails_2.png',
-        'roomDetails_3.png',
+      +roomsPhoto(
+        {
+        roomNumber: 888,
+        },
+        [
+        '1.png',
+        '2.png',
+        '3.png',
       ])
     .room-details__content-container
       .room-details__info

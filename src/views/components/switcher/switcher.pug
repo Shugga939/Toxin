@@ -1,6 +1,7 @@
-mixin switcher({title='', name=''})
+mixin switcher({title, name})
   .switcher
     label.switcher__label
       input(type="checkbox", name=name)
       span.switcher__slider
-      span.switcher__description #{title}
+      span.switcher__description 
+        | #{title}
