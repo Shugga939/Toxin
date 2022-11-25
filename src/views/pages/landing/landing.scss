@@ -23,7 +23,7 @@
     align-items: flex-start;
     height: 830px;
 
-    @media (max-width: vars.$table-width) {
+    @media (max-width: vars.$bp768) {
       justify-content: center;
       height: min-content;
       height: 685px;
@@ -40,7 +40,7 @@
     display: flex;
     align-items: flex-end;
 
-    @media (max-width: vars.$table-width) {
+    @media (max-width: vars.$bp768) {
       display: none;
     }
   }

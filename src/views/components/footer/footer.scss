@@ -9,11 +9,11 @@
   border-top: 1px solid rgba(31, 32, 65, 0.1);
   box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
 
-  @media (max-width: vars.$sm-desktop-width) {
+  @media (max-width: vars.$bp980) {
     padding: 50px 0;
   }
 
-  @media (max-width: vars.$phone-width) {
+  @media (max-width: vars.$bp480) {
     padding: 50px;
     font-size: 12px;
   }
@@ -25,7 +25,7 @@
     justify-content: space-between;
     max-width: 1260px;
 
-    @media (max-width: vars.$sm-desktop-width) {
+    @media (max-width: vars.$bp980) {
       padding: 0;
       padding-bottom: 0;
       justify-content: center;
@@ -37,7 +37,7 @@
     padding-right: 30px;
     margin-top: 8px;
 
-    @media (max-width: vars.$sm-desktop-width) {
+    @media (max-width: vars.$bp980) {
       text-align: center;
       padding-right: 0px;
     }
@@ -54,7 +54,7 @@
       height: 100%;
     }
 
-    @media (max-width: vars.$sm-desktop-width) {
+    @media (max-width: vars.$bp980) {
       margin-bottom: 0px;
     }
   }
@@ -63,7 +63,7 @@
     margin: 0;
     line-height: 24px;
     
-    @media (max-width: vars.$sm-desktop-width) {
+    @media (max-width: vars.$bp980) {
       display: none;
     }
   }
@@ -73,7 +73,7 @@
     display: flex;
     justify-content: space-between;
 
-    @media (max-width: vars.$sm-desktop-width) {
+    @media (max-width: vars.$bp980) {
       display: none;
     }
   }
@@ -85,7 +85,7 @@
     width: 200px;
     list-style: none;
 
-    @media (max-width: vars.$md-desktop-width) {
+    @media (max-width: vars.$bp980) {
       margin-right: 30px;
       width: auto;
     }
@@ -121,7 +121,7 @@
     padding-top: 5px;
     width: 260px;
 
-    @media (max-width: vars.$sm-desktop-width) {
+    @media (max-width: vars.$bp980) {
       display: none;
     }
   }
@@ -150,7 +150,7 @@
     border-top: 1px solid rgba(31, 32, 65, 0.1);
     background-color: inherit;
 
-    @media (max-width: vars.$sm-desktop-width) {
+    @media (max-width: vars.$bp980) {
       margin-top: 5px;
       border: none;
     }
@@ -164,7 +164,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @media (max-width: vars.$sm-desktop-width) {
+    @media (max-width: vars.$bp980) {
       padding: 0;
       display: block;
       text-align: center;
@@ -180,7 +180,7 @@
     margin: 0;
     padding: 0;
 
-    @media (max-width: vars.$sm-desktop-width) {
+    @media (max-width: vars.$bp980) {
       margin-top: 20px;
     }
   }

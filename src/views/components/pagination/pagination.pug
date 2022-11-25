@@ -1,0 +1,5 @@
+mixin pagination( rooms, sum )
+  .pagination
+    .pagination__container
+    span.pagination__text
+      | #{`${rooms[0]} - ${rooms[1]} из ${sum}+ вариантов аренды`}

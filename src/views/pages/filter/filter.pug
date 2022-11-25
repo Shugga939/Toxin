@@ -5,6 +5,7 @@ include Views/components/rangeSlider/rangeSlider
 include Views/components/checkbox/checkbox
 include Views/components/spoiler/spoiler
 include Views/components/roomCard/roomCard
+include Views/components/pagination/pagination
 
 
 append meta
@@ -250,3 +251,5 @@ block content
               rating: 3,
               reviews: 55
           })
+        .filter__pagination
+          +pagination([1,12], 100)

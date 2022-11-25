@@ -21,8 +21,13 @@ const guestsList = [
 
 const summaryDeclination = ['Гость', 'Гостя', 'Гостей'];
 
-const firstDateinput = document.querySelector('input[name="date-arrival"]');
-const secondDateinput = document.querySelector('input[name="date-leaving"]');
-const datepicker = new DoubleDropdownDate(firstDateinput, secondDateinput)
-const guestsLists = document.querySelectorAll('.guests-list');
-guestsLists.forEach((list) => new DropdownList(list, guestsList, summaryDeclination));
+$(document).ready(function () {
+  // init datepicker
+  const firstDateinput = document.querySelector('input[name="date-arrival"]');
+  const secondDateinput = document.querySelector('input[name="date-leaving"]');
+  const datepicker = new DoubleDropdownDate(firstDateinput, secondDateinput)
+
+  // init DropdownList component
+  const guestsLists = document.querySelectorAll('.guests-list');
+  guestsLists.forEach((list) => new DropdownList(list, guestsList, summaryDeclination));
+})

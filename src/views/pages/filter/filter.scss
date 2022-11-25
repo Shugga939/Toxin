@@ -7,25 +7,49 @@
 @use '../../components/spoiler/spoiler';
 @use '../../components/roomCard/roomCard';
 @use '../../components/rating/rating';
+@use '../../components/pagination/pagination';
 
 
 .filter {
   @include typography.ordinaryFont();
   width: 100%;
   display: flex;
+  justify-content: center;
 
   &__container {
     position: relative;
     display: flex;
     width: 100%;
-    padding: 29px 140px;
+    padding: 29px 140px 70px;
+    max-width: 1440px;
+
+    @media (max-width: vars.$bp1160) {
+      padding: 20px 40px;
+    }
+
+    @media (max-width: vars.$bp980) {
+      padding: 10px;
+    }
+
+    @media (max-width: vars.$bp670) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__filters-form {
     display: flex;
     flex-direction: column;
     min-width: 266px;
+    max-width: 266px;
     margin-right: 59px;
+
+    @media (max-width: vars.$bp980) {
+      margin-right: 20px;
+      margin-top: 5px;
+      margin-bottom: 25px;
+
+    }
   }
 
   &__filters-title {
@@ -91,10 +115,20 @@
   &__result {
     width: 100%;
     height: max-content;
+
+    @media (max-width: vars.$bp1440) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
   
   &__result-title {
-    @include typography.fontH1()
+    @include typography.fontH1();
+
+    @media (max-width: vars.$bp1440 - 1) {
+      text-align: center;
+    }
   }
   
   &__rooms {
@@ -102,5 +136,18 @@
     flex-wrap: wrap;
     margin-top: 22px;
     gap: 21px 12px;
+
+    @media (max-width: vars.$bp1440 - 1) {
+      max-width: 555px;
+    }
+
+    @media (max-width: 860px) {
+      max-width: 270px;
+    }
+  }
+
+  &__pagination {
+    margin-top: 40px;
+    margin-right: 15px;
   }
 }

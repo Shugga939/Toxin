@@ -25,19 +25,22 @@ const summaryDeclination = ['Гость', 'Гостя', 'Гостей'];
 const firstDate = new Date();
 const secondDate = new Date(firstDate.getFullYear(), firstDate.getMonth(),firstDate.getDate()+4);
 
-// init datepicker
-const firstDateinput = document.querySelector('input[name="date-arrival"]');
-const secondDateinput = document.querySelector('input[name="date-leaving"]');
-const datepicker = new DoubleDropdownDate(firstDateinput, secondDateinput, firstDate, secondDate)
+$(document).ready(function () {
+  // init datepicker
+  const firstDateinput = document.querySelector('input[name="date-arrival"]');
+  const secondDateinput = document.querySelector('input[name="date-leaving"]');
+  const datepicker = new DoubleDropdownDate(firstDateinput, secondDateinput, firstDate, secondDate)
+  
+  // init pieChart
+  const pieChartRoot = document.querySelector('.pie-chart');
+  const pieChart = new PieChart(pieChartRoot);
+  
+  // init DropdownList component
+  const guestsLists = document.querySelectorAll('.guests-list');
+  guestsLists.forEach((list) => new DropdownList(list, guestsList, summaryDeclination));
+  
+  // init LikeButton component
+  const likeButtons = document.querySelectorAll('.likeButton');
+  likeButtons.forEach((button) => new LikeButton(button));
+})
 
-// init pieChart
-const pieChartRoot = document.querySelector('.pie-chart');
-const pieChart = new PieChart(pieChartRoot);
-
-// init DropdownList component
-const guestsLists = document.querySelectorAll('.guests-list');
-guestsLists.forEach((list) => new DropdownList(list, guestsList, summaryDeclination));
-
-// init LikeButton component
-const likeButtons = document.querySelectorAll('.likeButton');
-likeButtons.forEach((button) => new LikeButton(button));

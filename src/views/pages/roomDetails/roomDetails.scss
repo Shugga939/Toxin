@@ -26,13 +26,13 @@
     justify-content: space-between;
     align-items: flex-start;
 
-    @media (max-width: vars.$md-desktop-width) {
+    @media (max-width: vars.$bp1160) {
       padding: 30px 20px;
       flex-direction: column;
       align-items: center;
     }
 
-    @media (max-width: vars.$phone-width) {
+    @media (max-width: vars.$bp480) {
       padding: 15px 5px;
       flex-direction: column;
     }
@@ -46,7 +46,7 @@
     display: flex;
     flex-direction: column;
 
-    @media (max-width: vars.$md-desktop-width) {
+    @media (max-width: vars.$bp1160) {
       width: 100%;
       align-items: center;
     }
@@ -55,12 +55,12 @@
   &__booking {
     margin-left: 40px;
 
-    @media (max-width: vars.$md-desktop-width) {
+    @media (max-width: vars.$bp1160) {
       margin-left: 0px;
       margin-top: 30px;
     }
     
-    @media (max-width: vars.$sm-desktop-width) {
+    @media (max-width: vars.$bp980) {
       width: 100%;
       display: flex;
       justify-content: center;
@@ -74,7 +74,7 @@
     flex-wrap: wrap;
     max-width: 710px;
 
-    @media (max-width: vars.$md-desktop-width) {
+    @media (max-width: vars.$bp1160) {
       justify-content: space-between;
       width: 100%;
     }
@@ -95,7 +95,7 @@
     margin-left: auto;
     margin-right: 38px;
 
-    @media (max-width: vars.$md-desktop-width) {
+    @media (max-width: vars.$bp1160) {
       margin: 0;
     }
 
@@ -113,7 +113,7 @@
     margin-top: 13px;
     margin-bottom: 32px;
 
-    @media (max-width: vars.$md-desktop-width) {
+    @media (max-width: vars.$bp1160) {
       margin-top: 30px;
     }
   }
@@ -127,12 +127,12 @@
       @include typography.ordinaryFont();
       transform: translateY(2px);
 
-      @media (max-width: vars.$phone-width) {
+      @media (max-width: vars.$bp480) {
         display: none;
       }
     }
 
-    @media (max-width: vars.$phone-width) {
+    @media (max-width: vars.$bp480) {
       h3 {
         margin: auto;
       }
@@ -157,7 +157,7 @@
     margin-left: auto;
     margin-right: 25px;
 
-    @media (max-width: vars.$md-desktop-width) {
+    @media (max-width: vars.$bp1160) {
       margin-right: 0px;
     }
 
