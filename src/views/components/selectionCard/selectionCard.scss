@@ -2,7 +2,7 @@
 @use '../../../assets/styles/base/typography';
 @use '../dropdownDate/dropdownDate';
 @use '../dropdownList/dropdownList';
-
+@use '../button/button';
 
 .selection-card {
   @include typography.ordinaryFont();

@@ -17,6 +17,7 @@
     width: 100%;
     border: 1px solid vars.$inputBorderColor;
     border-radius: 4px;
+    background-color: vars.$mainBackgroundColor;
     
     &::placeholder {
       font-size: 14px;

@@ -2,7 +2,7 @@
 @use '../../../assets/styles/base/typography';
 @use '../../../assets/scripts/plugins/slick/slick.scss';
 @use '../../../assets/scripts/plugins/slick/slick-theme.scss';
-
+@use '../../components/rating/rating';
 
 .room-card {
   @include typography.ordinaryFont();

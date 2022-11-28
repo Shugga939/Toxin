@@ -29,5 +29,5 @@ $(document).ready(function () {
 
   // init DropdownList component
   const guestsLists = document.querySelectorAll('.guests-list');
-  guestsLists.forEach((list) => new DropdownList(list, guestsList, summaryDeclination));
+  guestsLists.forEach((list) => new DropdownList(list, guestsList, true, summaryDeclination));
 })
