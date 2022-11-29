@@ -39,7 +39,7 @@
     border: 1px solid;
     border-color: vars.$inputBorderColor;
     border-radius: 4px;
-    background: transparent;
+    background-color: vars.$mainBackgroundColor;
 
     &::placeholder {
       color: vars.$mainTextColor50;

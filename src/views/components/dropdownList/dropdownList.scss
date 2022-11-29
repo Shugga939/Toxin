@@ -30,7 +30,7 @@
     border-color: vars.$inputBorderColor;
     border-radius: 4px;
     cursor: pointer;
-    background: transparent;
+    background-color: vars.$mainBackgroundColor;
     user-select: none;
     text-overflow:ellipsis;
 

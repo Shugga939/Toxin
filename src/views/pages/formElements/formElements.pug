@@ -1,0 +1,87 @@
+extends Views/layouts/demontstration.pug
+include Views/components/textField/textField
+include Views/components/dropdownList/dropdownList
+include Views/components/dropdownDate/dropdownDate
+
+
+
+
+append style
+  link(href=require('formElements.scss') rel='stylesheet')
+
+append script
+  script(src=require('formElements.js') defer='')
+
+block content
+  main.formElements
+    .formElements__logo
+      include Images/icons/logo-gray.svg
+    .formElements__content
+      .formElements__column
+        .formElements__item
+          +textField({
+            title: 'Text field',
+            type: 'Email',
+            placeholder: 'Email' ,
+            required: false,
+            button: false
+          })
+          span.formElements__item-subtitle
+            | Default
+        .formElements__item
+          +textField({
+            title: 'Text field',
+            type: 'Text',
+            placeholder: 'This is pretty awesome' ,
+            required: false,
+            button: false
+          })
+          span.formElements__item-subtitle
+            | Hover / Focus
+        .formElements__item
+          +dropdownList({
+            title: 'Dropdown',
+            placeholder: 'Сколько гостей',
+            classContainer: 'guests-list'
+          })
+        .formElements__item
+          +textField({
+              title: 'Masked text field',
+              type: 'Text',
+              placeholder: 'ДД.ММ.ГГГГ',
+              required: false,
+              button: false
+            })
+        .formElements__item.formElements__item--mt40
+          +dropdownDate({
+            firstTitle: 'Date dpopdown',
+            secondTitle: 'Date dpopdown',
+          })
+        .formElements__item.formElements__item--short.formElements__item--mt40
+          +dropdownDate({
+            firstTitle: 'Filter date dpopdown'
+          })
+        .formElements__item.formElements__item--short.formElements__item--mt40
+          +textField({
+              title: 'Subscription text field',
+              type: 'Email',
+              placeholder: 'Email',
+              required: false,
+              button: true
+            })
+        .formElements__item.formElements__item--short.formElements__item--mt40
+          +dropdownList({
+            title: 'Dropdown',
+            placeholder: 'Выберите удобства',
+            classContainer: 'comfort-list'
+          })
+          span.formElements__item-subtitle
+            | Default
+        .formElements__item.formElements__item--short
+          +dropdownList({
+            title: 'Dropdown',
+            placeholder: 'Выберите удобства',
+            classContainer: 'comfort-list--expanded'
+          })
+          span.formElements__item-subtitle
+            | Expanded

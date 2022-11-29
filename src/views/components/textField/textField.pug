@@ -1,6 +1,6 @@
 include Views/components/button/button
 
-mixin textField({ title, type = '', name, placeholder, required, pat, button = false })
+mixin textField({ title, type = '', name, placeholder, required, button = false })
   label.text-field
     if title
       span.text-field__title #{title}
@@ -8,7 +8,6 @@ mixin textField({ title, type = '', name, placeholder, required, pat, button = f
       type=type 
       name=name
       placeholder=placeholder
-      pattern=pat 
       required=required
     )
     if button

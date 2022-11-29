@@ -133,6 +133,10 @@ export default class DropdownList {
       if (e.keyCode==13) toggleList(e)
     });
   }
+
+  // openList() {
+    
+  // }
 }
 
 class ListItem {

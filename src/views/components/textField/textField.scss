@@ -1,5 +1,7 @@
 @use '../../../assets/styles/base/typography';
 @use '../../../assets/styles/base/variables' as vars;
+@use '../../components/button/button';
+
 
 .text-field {
   position: relative;
@@ -8,6 +10,8 @@
 
   &__title {
     @include typography.fontH3();
+    display: inline-block;
+    margin-bottom: 5px;
   }
 
   &__input {
@@ -42,8 +46,9 @@
 
   &__button-wrap {
     position: absolute;
-    height: 100%;
+    height: 43px;
+    width: 45px;
     right: 0;
-    top: 0;
+    bottom: 0;
   }
 }
