@@ -1,4 +1,5 @@
 @use '../../../assets/styles/base/variables' as vars;
+@use '../../../assets/styles/base/typography';
 @use '../../../assets/styles/base/animations';
 
 
@@ -42,9 +43,11 @@
   }
 
   &__counter {
+    @include typography.ordinaryFont();
     width: min-content;
     margin-left: 5px;
     font-size: 10px;
+    line-height: 1em;
     color: inherit;
     transition: transform 0.25s;
   }

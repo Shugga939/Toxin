@@ -17,6 +17,8 @@ module.exports = (env, argv) => {
     entry: {
       index: `${PAGES_DIR}/index/index.pug`,
       headersAndFooters: `${PAGES_DIR}/headersAndFooters/headersAndFooters.pug`,
+      formElements: `${PAGES_DIR}/formElements/formElements.pug`, 
+      cards: `${PAGES_DIR}/cards/cards.pug`,
       landing: `${PAGES_DIR}/landing/landing.pug`,
       signIn: `${PAGES_DIR}/signIn/signIn.pug`,
       registration: `${PAGES_DIR}/registration/registration.pug`,

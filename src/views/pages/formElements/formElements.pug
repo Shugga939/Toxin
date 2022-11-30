@@ -2,8 +2,17 @@ extends Views/layouts/demontstration.pug
 include Views/components/textField/textField
 include Views/components/dropdownList/dropdownList
 include Views/components/dropdownDate/dropdownDate
-
-
+include Views/components/spoiler/spoiler
+include Views/components/advantages/advantages
+include Views/components/radioButton/radioButton
+include Views/components/switcher/switcher
+include Views/components/likeButton/likeButton
+include Views/components/rating/rating
+include Views/components/rangeSlider/rangeSlider
+include Views/components/button/button
+include Views/components/pagination/pagination
+include Views/components/bulletList/bulletList
+include Views/components/review/review
 
 
 append style
@@ -17,7 +26,7 @@ block content
     .formElements__logo
       include Images/icons/logo-gray.svg
     .formElements__content
-      .formElements__column
+      .formElements__column.formElements__column-1
         .formElements__item
           +textField({
             title: 'Text field',
@@ -85,3 +94,200 @@ block content
           })
           span.formElements__item-subtitle
             | Expanded
+        .formElements__item.formElements__item--short
+          +spoiler({
+            title: 'Expandable checkbox list',
+          })
+        .formElements__item.formElements__item--short
+          +spoiler({
+            type: 'checkboxes',
+            typeContent : '',
+            title: 'Expandable checkbox list',
+            content : [
+            {
+              text: "Завтрак",
+              checked: false
+            },
+            {
+              text: "Письменный стол",
+              checked: true
+            },
+            {
+              text: "Стул для кормления",
+              checked: true
+            },
+            {
+              text: "Кроватка",
+              checked: true
+            },
+            {
+              text: "Телевизор",
+              checked: false
+            },
+            {
+              text: "Шампунь",
+              checked: false
+            },
+            {
+              text: "Телевизор",
+              checked: false
+            },
+            {
+              text: "Шампунь",
+              checked: false
+            }
+            ] 
+          })
+        .formElements__item
+          +advantages({
+              items: [
+                {
+                  title: "Комфорт",
+                  description: "Шумопоглащиющие стены",
+                  icon: "insert-emoticon"
+                },
+                {
+                  title: "Удобство",
+                  description: "Окно в каждой из спален",
+                  icon: "location-city"
+                },
+              ]
+            })
+      .formElements__column.formElements__column-2
+        .formElements__item
+          h3.formElements__item-title
+            | Checkbox buttons
+          +checkbox({
+            items: [
+              {
+                text: "Можно курить",
+                checked: false
+              },
+              {
+                text: "Можно с питомцами",
+                checked: true
+              },
+              {
+                text: "Можно пригласить гостей (до 10 человек)",
+                checked: true
+              }
+          ]})
+        .formElements__item.formElements__item--mt40
+          h3.formElements__item-title
+            | Radio buttons
+          .formElements__radioButtons-container
+            +radioButton({
+              title:'Мужчина',
+              name: 'gender',
+              checked: true,
+            }) 
+            +radioButton({
+              title:'Женщина',
+              name: 'gender',
+            })
+        .formElements__item
+          h3.formElements__item-title
+            | Toggle
+          .formElements__switchers-container
+            +switcher({
+              title: 'Получать спецпредложения',
+              name: 'subscription',
+            })
+            +switcher({
+              title: 'Получать спецпредложения',
+              name: 'subscription',
+              checked: true
+            })
+        .formElements__item.formElements__item--mt40
+          h3.formElements__item-title
+            | Like button
+          .formElements__likeButtons-container
+            +likeButton({count: 2, liked: false})
+            +likeButton({count: 12, liked: true})
+        .formElements__item.formElements__item--mt40
+          h3.formElements__item-title
+            | Rate button
+          .formElements__rateButtons-container
+            +rating(4)
+            +rating(5)
+        .formElements__item
+          +dropdownList({
+            title: 'Dropdown',
+            placeholder: 'Сколько гостей',
+            classContainer: 'guests-list-1'
+          })
+        .formElements__item
+          h3.formElements__item-title
+            | Rich checkbox buttons
+          +checkbox({ 
+            type: "detailed",
+            items: [
+              {
+                title: "Широкий коридор",
+                description: "Ширина коридоров в номере не менее 91 см.",
+                checked: false
+              },
+              {
+                title: "Помощник для инвалидов",
+                description: "На 1 этаже вас встретит специалист и проводит до номера.",
+                checked: false
+              }
+          ]})
+      .formElements__column.formElements__column-2
+        .formElements__item
+          h3.formElements__item-title
+            | Range slider
+          .formElements__range-slider
+            +rangeSlider({
+              id: 'price-slider'
+            })
+        .formElements__item.formElements__item--mt40
+          h3.formElements__item-title
+            | Buttons
+          .formElements__buttons-row
+            +button({
+              type: 'link',
+              href: '#',
+              text: 'Click me',
+              classes: 'button--entire button--high'
+            })
+            +button({
+              type: 'link',
+              href: '#',
+              text: 'Click me',
+              classes: 'button--entire button--high hovered'
+            })
+          .formElements__buttons-row
+            +button({
+              type: 'link',
+              href: '#',
+              classes: 'button--bordered button--high',
+              text: 'Click me'
+            })
+            +button({
+              type: 'link',
+              href: '#',
+              classes: 'button--bordered button--high hovered',
+              text: 'Click me'
+            })
+          .formElements__buttons-row
+            +button({
+              type: 'link',
+              href: '#',
+              text: 'Click me',
+              classes: 'button--textual'
+            })
+            +button({
+              type: 'link',
+              href: '#',
+              text: 'Click me',
+              classes: 'button--textual hovered-alt'
+            })  
+          .formElements__buttons-row
+            +button({
+              type: 'submit',
+              classes: 'button--confirm button--high',
+              text: 'Перейти к оплате'
+            })
+        .formElements__item
+          +pagination([1,12], 100)

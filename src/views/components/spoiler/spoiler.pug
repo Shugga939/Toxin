@@ -1,10 +1,10 @@
 include Views/components/checkbox/checkbox
 
-mixin spoiler({type, typeContent, content})
+mixin spoiler({type, typeContent, title, content})
   .spoiler
     .spoiler__head
       h3.spoiler__title 
-        | Дополнительные удобства
+        | #{title}
       span.spoiler__status
         include Images/icons/expand-more.svg
     .spoiler__content

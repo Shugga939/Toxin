@@ -71,7 +71,7 @@ export default class DropdownList {
   _addListeners() {
     const that = this;
 
-    function closeList() {
+    that.closeList = function () {
       that.list.style.borderColor = 'rgba(31, 32, 65, 0.25)'
       that.list_wrapper.style.maxHeight = '0px';
       that.list_wrapper.style.opacity = 0.7,
@@ -81,7 +81,7 @@ export default class DropdownList {
       that.isOpen = false;
     }
 
-    function openList() {
+    that.openList = function () {
       that.list.style.borderColor = 'rgba(31, 32, 65, 0.5)'
       that.list_wrapper.style.maxHeight = '500px';
       that.list_wrapper.style.opacity = 1,
@@ -94,7 +94,7 @@ export default class DropdownList {
 
     function toggleList(e) {
       e.stopPropagation()
-      that.isOpen ? closeList() : openList();
+      that.isOpen ? that.closeList() : that.openList();
     }
 
     function outsideClick(e) {
@@ -104,7 +104,7 @@ export default class DropdownList {
         && e.target !== that.status
       ) {
         that._updateInput();
-        closeList();
+        that.closeList();
         document.removeEventListener('click', outsideClick);
       }
     }
@@ -118,7 +118,7 @@ export default class DropdownList {
     function confirm(e) {
       e.preventDefault();
       that._updateInput();
-      closeList();
+      that.closeList();
     }
 
     if (this.withButtons) {

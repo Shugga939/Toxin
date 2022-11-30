@@ -11,7 +11,7 @@ export default class Spoiler {
   _addListeners () {
     const that = this;
 
-    function closeSpoiler() {
+    this.closeSpoiler = function () {
       that.content.style.maxHeight = '0px';
       that.content.style.overflow = 'hidden';
       that.content.style.opacity = '0.7';
@@ -20,7 +20,7 @@ export default class Spoiler {
       that.isOpen = false;
     }
 
-    function openSpoiler() {
+    this.openSpoiler = function () {
       that.content.style.maxHeight = '500px';
       that.content.style.overflow = 'visible';
       that.content.style.opacity = '1';
@@ -31,7 +31,7 @@ export default class Spoiler {
 
     function toggleSpoiler(e) {
       e.stopPropagation()
-      that.isOpen ? closeSpoiler() : openSpoiler();
+      that.isOpen ? that.closeSpoiler() : that.openSpoiler();
     }
     
     this.head.addEventListener('click', toggleSpoiler)
