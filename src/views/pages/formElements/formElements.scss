@@ -12,6 +12,10 @@
 @use '../../components/rangeSlider/rangeSlider';
 @use '../../components/button/button';
 @use '../../components/pagination/pagination';
+@use '../../components/bulletList/bulletList';
+@use '../../components/review/review';
+
+
 
 
 .formElements {
@@ -90,20 +94,32 @@
 
     &>div:nth-child(6) {
       margin-top: 195px;
-
-      .dropdown-list__buttons-container {
-        display: flex;
-        justify-content: flex-end;
-
-        &>button:first-child {
-          display: none;
-        }
-      }
     }
 
     &>div:nth-child(7) {
       margin-top: 255px;
     }
+
+    &>div:nth-child(8) {
+      margin-top: 230px;
+      width: 710px;
+    }
+  }
+
+  &__column-3 {
+
+    &>div:nth-child(3) {
+      margin-top: 100px;
+    }
+
+    &>div:nth-child(4) {
+      margin-top: 230px;
+    }
+
+    &>div:nth-child(5) {
+      margin-top: 250px;
+    }
+
   }
 
   &__radioButtons-container {

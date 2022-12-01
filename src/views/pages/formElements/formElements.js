@@ -44,6 +44,24 @@ const guests_1 = [
   },
 ];
 
+const guests_2 = [
+  {
+    title: 'Взрослые',
+    declination: ['Взрослый', 'Взрослых', 'Взрослых'],
+    value: 2
+  },
+  {
+    title: 'Дети',
+    declination: ['Ребенок', 'Ребенка', 'Детей'],
+    value: 1
+  },
+  {
+    title: 'Младенцы',
+    declination: ['Младенец', 'Младенца', 'Младенцев'],
+    value: 0
+  },
+];
+
 const startPriceSliderValue = [5000, 10000]
 const minmaxPriceSliderValue = [500, 15500]
 
@@ -77,6 +95,11 @@ $(document).ready(function () {
   // init Pagination component
   const paginationContainer = document.querySelector('.pagination__container');
   new Pagination(paginationContainer);
+
+  // init DropdownList component of column-3
+  const guestsListContainer_2 = document.querySelector('.guests-list-2');
+  const guestsList_2 = new DropdownList(guestsListContainer_2, guests_2, true);
+  guestsList_2.openList();
 })
 
 

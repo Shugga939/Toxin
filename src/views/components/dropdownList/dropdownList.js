@@ -8,8 +8,8 @@ export default class DropdownList {
     this.summaryDeclination = false || summaryDeclination
     this.isOpen = false;
     this.items = [];
+    this.itemsValueIsZero = [];
     this._render();
-    withButtons? this._renderButtons() : false;
     this._addListeners();
     this._updateInput();
   }
@@ -20,8 +20,20 @@ export default class DropdownList {
     this.list = this.container.querySelector('.dropdown-list__list');
     this.list_wrapper = this.container.querySelector('.dropdown-list__list-wrapper');
     this.status = this.container.querySelector('.dropdown-list__status');
-    this.dataList.forEach((data) => {
-      const listItem = new ListItem(data.title, data.value, data.declination);
+
+    this.__renderItems();
+    if (this.withButtons) this._renderButtons();
+  }
+
+  __renderItems() {
+    this.dataList.forEach((data, index) => {
+      const listItem = new ListItem(
+        data.title, data.value,
+        data.declination, 
+        index, 
+        this.checkValuesForZero.bind(this)
+      );
+      this.itemsValueIsZero.push(data.value >0 ? false : true)
       this.items.push(listItem);
       this.list.append(listItem.getItem());
     });
@@ -40,6 +52,8 @@ export default class DropdownList {
       this.buttonsContainer.append(this.clearButton);
       this.buttonsContainer.append(this.confirmButton);
       this.list.append(this.buttonsContainer);
+
+      this.itemsValueIsZero.forEach((val, index)=> this.checkValuesForZero(index, val))
     }
   }
 
@@ -134,16 +148,25 @@ export default class DropdownList {
     });
   }
 
-  // openList() {
-    
-  // }
+  checkValuesForZero (index, bool) {
+    this.itemsValueIsZero[index] = bool
+    if (this.itemsValueIsZero.some((val) => val == false)) {
+      this.clearButton.style.display = 'block'
+      this.buttonsContainer.classList.remove('dropdown-list__buttons-container--one-button');
+    } else {
+      this.clearButton.style.display = 'none'
+      this.buttonsContainer.classList.add('dropdown-list__buttons-container--one-button');
+    }
+  }
 }
 
 class ListItem {
-  constructor(name, value, declination) {
+  constructor(name, value, declination, index, checkValuesForZero) {
     this.name = name;
     this.value = value;
     this.declination = declination;
+    this.index = index;
+    this.callbackFn = checkValuesForZero;
     this.item = document.createElement('div');
     this.itemName = document.createElement('span');
     this.counterContainer = document.createElement('div');
@@ -182,6 +205,7 @@ class ListItem {
       e.preventDefault();
       if (that.value === 0) {
         that.minusButton.classList.remove('dropdown-list__button--unactive');
+        that.callbackFn(that.index, false)
       }
       that.counter.textContent = ++that.value;
     }
@@ -193,6 +217,7 @@ class ListItem {
         that.counter.textContent = 0;
         that.value = 0;
         that.minusButton.classList.add('dropdown-list__button--unactive');
+        that.callbackFn(that.index, true)
       } else {
         that.counter.textContent = that.value;
       }

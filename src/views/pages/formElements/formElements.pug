@@ -233,7 +233,16 @@ block content
                 checked: false
               }
           ]})
-      .formElements__column.formElements__column-2
+        .formElements__item
+          +review({
+            avatar: "murad.png",
+            name: "Мурад Сарафанов",
+            date: "5 дней назад",
+            text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+            like: 12,
+            liked: true
+          })
+      .formElements__column.formElements__column-3
         .formElements__item
           h3.formElements__item-title
             | Range slider
@@ -291,3 +300,20 @@ block content
             })
         .formElements__item
           +pagination([1,12], 100)
+        .formElements__item
+          +dropdownList({
+            title: 'Dropdown',
+            placeholder: 'Сколько гостей',
+            classContainer: 'guests-list-2'
+          })
+        .formElements__item
+          h3.formElements__item-title
+            | Bullet list
+          +bulletList({
+            title: "Правила", 
+            items: [
+              "Нельзя с питомцами",
+              "Без вечеринок и мероприятий",
+              "Время прибытия — после 13:00, а выезд до 12:00",
+            ]
+          })
