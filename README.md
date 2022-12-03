@@ -3,7 +3,7 @@
 Demonstration of responsive pages and components for finding hotel rooms
 
 ## Links
-- ### [Demo (Index Page)](https://shugga939.github.io/ToxinWeb.github.io/)
+- ### [Demo (Index Page)](https://shugga939.github.io/Toxin/)
 - ### [Figma Template](https://www.figma.com/file/MumYcKVk9RkKZEG6dR5E3A/MetaLamp-(former-FSD)-frontend-education-program.-The-2nd-task)
 
 ## Contributing
@@ -13,7 +13,7 @@ Demonstration of responsive pages and components for finding hotel rooms
 * **Styles:** [SCSS](https://sass-lang.com/)
 * **Source code:** [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * **Libraries:** [jQuery](https://jquery.com/)
-* **Bundling:** [Parcel](https://parceljs.org/)
+* **Bundling:** [Webpack](https://webpack.js.org/)
 
 ### The following jQuery plugins are used:
 * [Air DatePicker](http://t1m0n.name/air-datepicker/docs/)
