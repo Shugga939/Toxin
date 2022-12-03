@@ -1,4 +1,4 @@
-import 'Scripts/plugins/slick/slick';
+import 'Scripts/plugins/slick';
 window.$ = require('jquery')
 window.jQuery = require('jquery')
 

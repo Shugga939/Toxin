@@ -6,5 +6,5 @@ mixin button({ type = "button", href = '#', classes = '', text = null })
 		button(type="submit" class=classes).button
 			| #{text}
 	else if type === 'link'
-		a(href=href class=classes).button
+		a(href=`./${href}` class=classes).button
 			| #{text}

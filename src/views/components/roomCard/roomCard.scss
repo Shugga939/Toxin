@@ -1,7 +1,7 @@
 @use '../../../assets/styles/base/variables' as vars;
 @use '../../../assets/styles/base/typography';
-@use '../../../assets/scripts/plugins/slick/slick.scss';
-@use '../../../assets/scripts/plugins/slick/slick-theme.scss';
+@use '../../../assets/styles/plugins/slick/slick';
+@use '../../../assets/styles/plugins/slick/slick-theme';
 @use '../../components/rating/rating';
 
 .room-card {

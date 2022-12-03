@@ -125,8 +125,12 @@ export default class DropdownList {
 
     function clear(e) {
       e.preventDefault();
-      that.items.forEach((item) => item.resetCounter());
+      that.items.forEach((item, index) => {
+        item.resetCounter()
+        that.itemsValueIsZero[index] = true
+      });
       that.input.value = '';
+      that._hideClearButton();
     }
 
     function confirm(e) {
@@ -149,14 +153,25 @@ export default class DropdownList {
   }
 
   checkValuesForZero (index, bool) {
-    this.itemsValueIsZero[index] = bool
-    if (this.itemsValueIsZero.some((val) => val == false)) {
-      this.clearButton.style.display = 'block'
-      this.buttonsContainer.classList.remove('dropdown-list__buttons-container--one-button');
-    } else {
-      this.clearButton.style.display = 'none'
-      this.buttonsContainer.classList.add('dropdown-list__buttons-container--one-button');
+    if (this.withButtons) {
+      this.itemsValueIsZero[index] = bool
+
+      if (this.itemsValueIsZero.some((val) => val == false)) {
+        this._showClearButton();
+      } else {
+        this._hideClearButton();
+      }
     }
+  }
+
+  _hideClearButton () {
+    this.clearButton.style.display = 'none'
+    this.buttonsContainer.classList.add('dropdown-list__buttons-container--one-button');
+  }
+
+  _showClearButton () {
+    this.clearButton.style.display = 'block'
+    this.buttonsContainer.classList.remove('dropdown-list__buttons-container--one-button');
   }
 }
 

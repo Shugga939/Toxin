@@ -20,11 +20,6 @@ mixin footer()
         { text: 'Сообщества'},
         { text: 'Связь с нами'},
       ],
-      social: [
-        { xlinkHref:  '#twitter'},
-        { xlinkHref:  '#facebook'},
-        { xlinkHref:  '#inst'},
-      ]
     }
   footer.footer
     .footer__wrapper
@@ -74,10 +69,14 @@ mixin footer()
       .footer__basement-wrapper
         span.footer__copyright
           | Copyright © 2018 Toxin отель. Все права защищены.
-        ul(aria-label="Социальные сети").footer__social-list
-          each route in routes.social
-            li.footer__social-item
-              a(href="#" target="_blank").footer__social-link
-                svg.footer__social-icon 
-                  use(xlink:href=route.xlinkHref)
+        ul.footer__social-list
+          li.footer__social-item
+            a(href="#" target="_blank").footer__social-link
+              include Images/icons/twitter.svg
+          li.footer__social-item
+            a(href="#" target="_blank").footer__social-link
+              include Images/icons/facebook.svg
+          li.footer__social-item
+            a(href="#" target="_blank").footer__social-link
+              include Images/icons/instagram.svg
 
