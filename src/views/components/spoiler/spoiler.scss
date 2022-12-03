@@ -35,6 +35,6 @@
     margin-top: 19px;
     max-height: 0px;
     overflow: hidden;
-    transition: all 0.3s ease-out;
+    transition: all vars.$transition-default ease-out;
   }
 }

@@ -1,8 +1,5 @@
 import 'Scripts/plugins/datepicker';
 
-window.$ = require('jquery')
-window.jQuery = require('jquery')
-
 export class DoubleDropdownDate {
   constructor(firstInput, secondInput, firstDate, secondDate) {
     this.firstInput = $(firstInput)

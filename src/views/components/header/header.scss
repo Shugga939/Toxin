@@ -56,11 +56,11 @@
       height: 100vh;
       max-height: 0;
       background-color: vars.$mainBackgroundColor;
-      transition: max-height vars.$tr-fast;
+      transition: max-height vars.$transition-default;
     }
 
     &--active {
-      transition: max-height vars.$tr-fast;
+      transition: max-height vars.$transition-default;
       max-height: 100vh;
       visibility: initial;
     }
@@ -99,7 +99,7 @@
       max-width: 100%;
       width: 100%;
       margin: 0;
-      transition: vars.$tr-fast;
+      transition: vars.$transition-default;
       border-top: 1px solid vars.$mainTextColor25;
 
         &:last-child {
@@ -254,7 +254,7 @@
     background-color: vars.$mainBackgroundColor;
     border: 2px solid vars.$mainAccentColor;
     border-radius: 50%;
-    transition: vars.$tr-fast;
+    transition: vars.$transition-default;
 
     &::after {
       top: calc(50% - 1px);

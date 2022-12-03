@@ -5,9 +5,6 @@ import RangeSlider from 'Views/components/rangeSlider/rangeSlider';
 import Pagination from 'Views/components/pagination/pagination';
 
 
-window.$ = require('jquery')
-window.jQuery = require('jquery')
-
 const comfortList = [
   {
     title: 'Спальни',

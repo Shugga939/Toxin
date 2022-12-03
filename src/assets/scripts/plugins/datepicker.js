@@ -1,6 +1,3 @@
-window.$ = require('jquery')
-window.jQuery = require('jquery')
-
 ;(function (window, $, undefined) { ;(function () {
     var VERSION = '2.2.3',
         pluginName = 'airDatepicker',

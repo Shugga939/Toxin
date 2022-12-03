@@ -1,6 +1,4 @@
 import 'Scripts/plugins/slick';
-window.$ = require('jquery')
-window.jQuery = require('jquery')
 
 export default class RoomSlider {
   constructor(container) {

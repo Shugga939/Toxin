@@ -1,7 +1,4 @@
-window.$ = require('jquery')
-window.jQuery = require('jquery')
-import 'Scripts/plugins/jquery-ui.min';
-
+import 'jquery-ui/ui/widgets/slider'
 
 export default class RangeSlider {
   constructor(wrapper, startValues, minMaxPrice) {

@@ -81,7 +81,7 @@
     top: 62px;
     overflow: hidden;
     z-index: 10;
-    transition: all 0.2s ease-in-out;
+    transition: all vars.$transition-default ease-in-out;
   }
 
   &__list {

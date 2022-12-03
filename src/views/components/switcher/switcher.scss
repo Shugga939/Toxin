@@ -26,7 +26,7 @@
 
       &:checked ~ .switcher__description {
         color: vars.$mainTextColor75;
-        transition: all vars.$tr-fast;
+        transition: all vars.$transition-default;
       }
     }
   }
@@ -50,7 +50,7 @@
       left: 4px;
       bottom: 3px;
       background-color: vars.$mainTextColor25;
-      transition: all vars.$tr-fast;
+      transition: all vars.$transition-default;
       border-radius: 34px;
     }
   }

@@ -1,6 +1,7 @@
 @use '../../../assets/styles/base/variables' as vars;
 @use '../../../assets/styles/base/typography';
-@use '../../../assets/styles/plugins/jquery-ui/jquery-ui.min.css';
+@use '/node_modules/jquery-ui/themes/base/slider';
+
 
 .range-slider {
   position: relative;
@@ -11,6 +12,7 @@
     font-size: 12px;
     outline: none;
     border: none;
+    background: transparent;
   }
   
   .ui-slider {

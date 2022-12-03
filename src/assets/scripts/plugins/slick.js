@@ -15,8 +15,6 @@
 
  */
 /* global window, document, define, jQuery, setInterval, clearInterval */
-window.$ = require('jquery')
-window.jQuery = require('jquery')
 ;(function(factory) {
     'use strict';
     // if (typeof define === 'function' && define.amd) {

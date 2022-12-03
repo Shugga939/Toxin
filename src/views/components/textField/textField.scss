@@ -29,7 +29,7 @@
     }
     
     &:hover {
-      transition: border-color vars.$tr-fast;
+      transition: border-color vars.$transition-default;
       border: 1px solid vars.$inputBorderColor--hover;
     }
 
@@ -39,7 +39,7 @@
 
       &::placeholder {
         color: vars.$mainTextColor75;
-        transition: color vars.$tr-fast;
+        transition: color vars.$transition-default;
       }
     }
   }

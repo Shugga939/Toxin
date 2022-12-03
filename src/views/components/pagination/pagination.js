@@ -1,6 +1,4 @@
 import 'Scripts/plugins/simplePagination';
-window.$ = require('jquery')
-window.jQuery = require('jquery')
 
 export default class Pagination {
   constructor(container) {

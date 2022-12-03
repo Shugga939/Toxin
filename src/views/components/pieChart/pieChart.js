@@ -1,6 +1,4 @@
 import 'Scripts/plugins/chart.min';
-window.$ = require('jquery')
-window.jQuery = require('jquery')
 
 export default class PieChart {
   constructor(container) {

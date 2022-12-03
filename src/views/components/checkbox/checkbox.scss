@@ -42,7 +42,7 @@
       background-position: 50% 30%;
       border-color: vars.$mainAccentColor;
       animation-name: tap;
-      animation-duration: 0.25s;
+      animation-duration: vars.$transition-default;
     }
   
     &__text {

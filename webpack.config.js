@@ -2,6 +2,7 @@
 
 const path = require('path');
 const PugPlugin = require('pug-plugin');
+const webpack = require('webpack');
 //const PugPlugin = require('../../'); // for local development only
 
 module.exports = (env, argv) => {
@@ -55,6 +56,12 @@ module.exports = (env, argv) => {
           filename: 'assets/css/[name].[contenthash:8].css',
         },
       }),
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery'",
+        "window.$": "jquery"
+      })
     ],
 
     module: {

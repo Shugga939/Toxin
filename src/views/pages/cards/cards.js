@@ -3,9 +3,6 @@ import RoomSlider from 'Views/components/roomCard/roomCard';
 import { DoubleDropdownDate } from '../../components/dropdownDate/dropdownDate.js';
 import DropdownList from 'Views/components/dropdownList/dropdownList';
 
-window.$ = require('jquery')
-window.jQuery = require('jquery')
-
 
 const firstGuestsList = [
   {
